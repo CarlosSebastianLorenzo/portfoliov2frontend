@@ -17,8 +17,10 @@ export class HabilidadesComponent implements OnInit {
     });
   }
 
-  onDelete(habilidades:HabilidadesService){
-    console.log("habilidades son"+JSON.stringify(habilidades));
+  onDelete(id:number){
+    this.habilidades.borrarDato(id).subscribe(data =>{
+    console.log("el id numero "+JSON.stringify(data)+" fue borrado");
+    })
   }
 
 }

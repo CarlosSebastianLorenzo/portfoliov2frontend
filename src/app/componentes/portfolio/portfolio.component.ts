@@ -7,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
   modo:any;
+  cambiar:any;
   constructor() { }
-
+  
   ngOnInit(): void {
+    this.modo="light";
+    this.cambiar="dark";
   }
   darkmode(){
     if(this.modo=="dark"){
-     this.modo="light"}
-    else{ this.modo="dark"}
+     this.modo="light",this.cambiar="dark";}
+    else{ this.modo="dark",this.cambiar="light";}
        
     
     console.log(this.modo)

@@ -18,10 +18,10 @@ borrarDato(id:number): Observable<any>
 {
   return this.http.delete<any>(this.url+"borrar/Habilidades/"+id);
 }
-cambiarDato(id:number): Observable<any>
-{
-  return this.http.post<any>(this.url+"crear/Habilidades/"+id);
-}
+//cambiarDato(id:number): Observable<any>
+//{
+//  return this.http.post<any>(this.url+"crear/Habilidades/"+id);
+//}
 
 
 

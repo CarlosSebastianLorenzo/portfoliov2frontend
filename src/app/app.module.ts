@@ -13,6 +13,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     HabilidadesComponent,
     ProyectosComponent,
     AcercaDeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

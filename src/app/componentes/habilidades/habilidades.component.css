@@ -1,31 +1,3 @@
-.proffessional-skill .mh-skills{
-    padding-right: 60px;
-    color: white;
-}
-.proffessional-skill .mh-skills h3{
-    font-size: 30px;
-    line-height: 40px;
-    text-align:center;
-    font-weight: 400;
-    margin-bottom: 60px;
-    font-family:'Poppins',sans-serif;
-
-}
-.proffessional-skill{
-    padding-left:20%;
-}
-.mh-professional-progress{
-    display: inline-block;
-    margin: 0 auto;
-    float: none;
-    width: 48%;
-    margin-bottom: 30px;
-    text-align: center;
-
-}
-.mh-progress{
-    margin-bottom: 10px;
-    font: 900 1.14285/1;
-    color: white;
-    
+.progress{
+    background-color: blueviolet;
 }

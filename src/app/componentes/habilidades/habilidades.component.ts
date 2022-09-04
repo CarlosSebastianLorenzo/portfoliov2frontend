@@ -23,4 +23,10 @@ export class HabilidadesComponent implements OnInit {
     })
   }
 
+  onChange(id:number){
+    this.habilidades.torque(id).subscribe(data =>{
+    console.log("el id numero "+JSON.stringify(data)+"fue editado");
+    }
+  }
+
 }

@@ -7,10 +7,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private formBuilder: FormBuilder) { }
-
+  formulario:FormGroup;
+  constructor(private formBuilder: FormBuilder) { 
+    this.formulario=this.formBuilder.group({
+      email:['',[Validators.required,Validators.email]],
+      contrasenia:['',[Validators.required,Validators.minLength(8)]]
+    })
+  }
   ngOnInit(): void {
+    console.log(this.formulario)
+  }
+
+  get Email(){
+    return this.formulario.get('email');
+  }
+
+  get Contrasenia(){
+    return this.formulario.get('contrasenia');
   }
 
 }

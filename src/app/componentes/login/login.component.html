@@ -1,15 +1,35 @@
 <div class="containner">
     <div class="row">
         <div class="col-10 col-sm-8 col-md-6 mx-auto">
-<form>
+          <h1 class="text-center pt-5">Iniciar Sesión</h1>
+<form [formGroup]="formulario" class="py-4">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">Nunca compartiremos su email con alguien más</div>
+      <input formControlName="email"
+      [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}"
+      type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div *ngIf="Email?.errors && Email?.touched">
+      <p *ngIf="Email?.hasError('required')" class="text-danger">
+        El email es requerido
+      </p>
+      <p *ngIf="Email?.hasError('email')" class="text-danger">
+        El formato de email debe ser válido.
+      </p>
+    </div>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input formControlName="contrasenia" 
+      [ngClass]="{'is-invalid': Contrasenia?.errors && Contrasenia?.touched, 'is-valid': !Contrasenia?.errors && Contrasenia?.touched}"
+      type="password" class="form-control" id="exampleInputPassword1">
+      <div *ngIf="Contrasenia?.errors && Contrasenia?.touched">
+        <p *ngIf="Contrasenia?.hasError('required')" class="text-danger">
+          La Contraseña es requerida
+        </p>
+        <p *ngIf="Contrasenia?.errors?.['minlength']" class="text-danger">
+          La Contraseña debe tener al menos 8 caracteres.
+        </p>
+      </div>
     </div>
     <div class="mb-3 form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">

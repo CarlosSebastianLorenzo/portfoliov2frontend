@@ -7,12 +7,11 @@ import { LoginComponent } from './componentes/login/login.component';
 
 
 const routes: Routes = [
-  {path: 'portfolio', component:PortfolioComponent},
-  {path: 'portfolio/:id', component:PortfolioComponent},
-  {path: 'acercade', component:PaginaNoEncontradaComponent},
-  {path: '', redirectTo: 'portfolio', pathMatch: 'full'},
+  {path: 'pagina-no-encontrada', component:PaginaNoEncontradaComponent},
+  {path: 'portfolio/:ruta', component:PortfolioComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component:LoginComponent},
-  {path: '**', redirectTo: 'pagina-no-encontrada', pathMatch: 'full'}
+  {path: '**', redirectTo: 'pagina-no-encontrada', pathMatch: 'full'},
 ];
 
 @NgModule({

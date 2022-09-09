@@ -3,6 +3,7 @@ import { HabilidadesService } from 'src/app/servicios/habilidades.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Habilidades } from '../../Modelos/habilidades.model';
 
 @Component({
   selector: 'app-habilidades',
@@ -11,8 +12,17 @@ import { Observable } from 'rxjs';
 })
 export class HabilidadesComponent implements OnInit {
   mishabilidades:any;
- 
-  constructor(private habilidades:HabilidadesService, private route:ActivatedRoute) { }
+  public hab: Habilidades;
+  idusuario:number=0;
+  constructor(private habilidades:HabilidadesService, private route:ActivatedRoute) { 
+    this.hab={
+      "id" : 1,
+    "nombre" : "",
+    "imagen" : "",
+    "porcentaje" : 1,
+    "usuario" : { "id" : 1 }
+    }
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((pepe: ParamMap) => {
@@ -34,10 +44,23 @@ export class HabilidadesComponent implements OnInit {
     })
   }
 
- // onChange(id:number){
-  //  this.habilidades.torque(id).subscribe(data =>{
-  //  console.log("el id numero "+JSON.stringify(data)+"fue editado");
-  //  }
- // }
+  onChange(id:number){
+    this.route.paramMap.subscribe((pepe: ParamMap) => {
+      console.log('el usuario es:', pepe.get('ruta'));
+      this.idusuario = parseInt(pepe.get('ruta')!);
+            
+    this.hab = {
+      "id" : id,
+      "nombre" : "juancho",
+      "imagen" : "123151231312ghsac",
+      "porcentaje" : 35,
+      "usuario" : { "id" : this.idusuario }
+  }
+  
+    this.habilidades.cambiarDato(this.hab).subscribe(data =>{
+    console.log("el objeto "+data+"fue editado");
+    })
+    });
+  }
 
 }

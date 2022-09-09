@@ -23,15 +23,15 @@ obtenerDatos(): Observable<any>
   console.log(id);
    return this.http.get<any>(this.url+id);
 }
-borrarDato(id:number): Observable<any>
+
+borrarDato(id:number,protocolo:string): Observable<any>
 {
-  return this.http.delete<any>(this.url+"borrar/Habilidades/"+id);
-}
-cambiarDato(hab:Habilidades): Observable<Habilidades>
-{
-  return this.http.post<Habilidades>(this.url+"crear/Habilidades/", hab);
+  return this.http.delete<any>(this.url+protocolo+id);
 }
 
-
+cambiarDato(hab:Habilidades,protocolo:string): Observable<Habilidades>
+{
+  return this.http.post<Habilidades>(this.url+protocolo, hab);
+}
 
 }

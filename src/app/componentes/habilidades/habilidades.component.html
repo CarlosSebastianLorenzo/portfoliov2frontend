@@ -1,53 +1,73 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-            <h1>Habilidades Profesionales</h1>
-            <div
-              class="cada habilidad"
-              *ngFor="let habilidad of mishabilidades"
-            >
-                    <div class="nome">{{ habilidad.nombre }}</div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-striped active progress-bar-animated"
-                        style="width:{{ habilidad.porcentaje }}%">
-                        {{ habilidad.porcentaje }}%
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-danger" (click)="onDelete(habilidad.id)">x</button>
-                 <button type="button" class="btn btn-warning" (click)="onChange(habilidad.id)">x</button>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
-      <div class="col-sm-12 col-md-6">
-          <h3>Professional Skills</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 d-inline text-center">
+      <h3>Habilidades Profesionales</h3>
+      <div class="cada habilidad" *ngFor="let habilidad of mishabilidades">
+        <div class="nome">{{ habilidad.nombre }}</div>
+        <div class="progress">
           <div
-          class="cada habilidad"
-          *ngFor="let habilidad of mishabilidades"
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            style="width:{{ habilidad.porcentaje }}%"
+          >
+            {{ habilidad.porcentaje }}%
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="onDelete(habilidad.id)"
         >
-                <div class="nome">{{ habilidad.nombre }}</div>
-                <div class="progress" style="width:140px; height: 140px; border-radius: 50%; ">
-                  <div
-                    class="progress-bar progress-bar-striped active progress-bar-animated"
-                    style="width:{{habilidad.porcentaje}}%">
-                    {{ habilidad.porcentaje }}%
-                  </div>
-                </div>
-                <button type="button" class="btn btn-danger" (click)="onDelete(habilidad.id)">x</button>
-      
-      <circle-progress
-  [percent]=" habilidad.porcentaje"
-  [radius]="50"
-  
-  [outerStrokeWidth]="10"
-  [innerStrokeWidth]="6"
-  [outerStrokeColor]="'#21314598'"
-  [innerStrokeColor]="'#21314566'"
-  [animation]="true"
-  [animationDuration]="800"
-  ></circle-progress>
+          x
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onChange(habilidad.id)"
+        >
+          x
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 d-inline text-center mx-auto">
+      <h3>Habilidades Sociales</h3>
+      <div class="cada habilidad" *ngFor="let habilidad of mishabilidades">
+        <div class="nome">{{ habilidad.nombre }}</div>
+        <div
+          class="progress mx-auto"
+          style="width: 140px; height: 140px; border-radius: 50%; transform: rotatez(270deg);"
+        >
+          <div
+            class="progress-bar progress-bar-striped active progress-bar-animated pepe"
+            style="width:{{ habilidad.porcentaje }}%"
+          >
+            
+          </div><h3 style="transform: rotatez(90deg); z-index: 1; color:azure">{{ habilidad.porcentaje }}%</h3>
+        </div>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="onDelete(habilidad.id)"
+        >
+          x
+        </button>
+
+        <circle-progress
+          [percent]="habilidad.porcentaje"
+          [radius]="80"
+          [outerStrokeWidth]="10"
+          [innerStrokeWidth]="6"
+          [outerStrokeColor]="'#21314598'"
+          [outerStrokeGradientStopColor]="'#99999999'"
+          [innerStrokeColor]="'#21314566'"
+          [outerStrokeGradient] = true
+          [animation]="true"
+          [animationDuration]="800"
+          [animateTitle] = true
+          [animateSubtitle]= true
+          [showSubtitle]=true
+          
+        ></circle-progress>
+      </div>
+    </div>
+  </div>
 </div>
- 

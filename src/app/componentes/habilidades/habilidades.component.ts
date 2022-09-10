@@ -54,7 +54,7 @@ export class HabilidadesComponent implements OnInit {
         id: id,
         nombre: 'juancho',
         imagen: '123151231312ghsac',
-        porcentaje: 35,
+        porcentaje: 85,
         usuario: { id: this.idusuario },
       };
 

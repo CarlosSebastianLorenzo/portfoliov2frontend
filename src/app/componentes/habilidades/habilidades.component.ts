@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HabilidadesService } from 'src/app/servicios/habilidades.service';
+import { HabilidadesService } from 'src/app/servicios/HTTP.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Habilidades } from '../../Modelos/habilidades.model';

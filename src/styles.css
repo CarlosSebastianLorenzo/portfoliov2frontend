@@ -1,3 +1,6 @@
+:root{
+    --color-primario: rgb(71, 255, 120);
+}
 .aparecer{
     animation-name: aparece;
     animation-duration:2s;
@@ -38,3 +41,43 @@ from{
     scale: 1.2;
 }
 }
+.glass{
+    
+    background: linear-gradient(135deg, #000000b5, #ffffff4d);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 #1f26875e;
+    backdrop-filter: blur(4px);
+    border: solid 1px #f0f0f050;
+}
+.shine{
+    background: linear-gradient(to right, #4d4d4d00 0%, #ffffff41 15%, #4d4d4d00 30%);
+    animation-name: shine;
+    animation-duration:8s;
+    animation-iteration-count:infinite;
+    animation-direction:reverse;
+    animation-timing-function: ease-in-out;
+    background-position: 0;
+}
+
+@keyframes shine{
+    from{
+        background-position:0;
+    }
+    50%{
+        background-position-x: 40vw;
+        
+    }
+   
+}
+.flotar{
+animation-name: flotar;
+animation-duration:2s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+animation-timing-function: ease;
+}
+@keyframes flotar {
+    from{
+        translate: 0 5%; 
+    }
+    }

@@ -5,33 +5,19 @@
 
 .perfil{
     border-radius: 10px;
-    width: 350px;
-    height: 350px;
+    width: min(60vw, 350px);
+    height: min(60vw, 350px);
+    
 }
 
 .div-imagen{
     text-align: center;
-    width: 450px;
-    height: 450px;
-    background: linear-gradient(135deg, #000000b5, #ffffff4d);
-    border-radius: 10px;
-    box-shadow: 0 8px 32px 0 #1f26875e;
-    backdrop-filter: blur(4px);
-    border: solid 1px #f0f0f050;
-    animation-name: flotar;
-    animation-duration:2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease;
+    width:  min(80vw, 450px);
+    height: min(80vw, 450px);
 }
 .div-imagen:hover{
+    
     rotate: 2deg;
-}
-
-@keyframes flotar {
-from{
-    translate: 0 5%; 
-}
 }
 
 .portada{
@@ -40,6 +26,6 @@ from{
     background-position-y: bottom;
     background-position-x: center;
     background-attachment: fixed;
-    background-color: aqua;
-    background-blend-mode:multiply;
+    background-color: var(--color-primario);
+    background-blend-mode:darken;
 }

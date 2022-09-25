@@ -3,5 +3,9 @@
     width: 100%;
     
 }
-
-   
+.nav-link:hover{
+    background-color: var(--color-primario);
+}
+.nav-link{
+    border-radius: 10px;
+}

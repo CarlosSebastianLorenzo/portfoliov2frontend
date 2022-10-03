@@ -1,13 +1,18 @@
-<div class="containner my-5">
-    <div class="row m-5 md-px-5 ">
-        <div class="col-auto pt-3">
-            <p>de 01/01/2010</p>
-            <p>hasta 25/09/2022</p>
-        </div>
-        <div class="col-6 aparecer mx-auto">
-            <h2>Operario General</h2>
-            <h3>en Molino Arrocero de Lorenzo Carlos Urbano</h3>
-            <p>Atención al público, carga, descarga, elaboración y envasado de mercadería, limpieza, entre otras actividades.</p>
-        </div>
+ <h1 class="py-5">Experiencia Laboral</h1>
+ <div class="container">
+  <div class="row gap-1 gap-md-3 justify-content-center" >
+    <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let experiencia of misexperiencias">
+      <div class="caja">
+        <h3>{{ experiencia.puesto }}</h3>
+        <p class="py-1 m-0">
+          {{ experiencia.fechaInicio | date: "dd/MM/yyyy" }} -
+          {{ experiencia.fechaFinal | date: "dd/MM/yyyy" }}
+        </p>
+        <img class="rounded img-fluid" [src]="experiencia.logo" alt="">
+        
+        <h5>{{ experiencia.empresa }}</h5>
+        <p>{{ experiencia.actividades }}</p>
+      </div>
     </div>
+  </div>
 </div>

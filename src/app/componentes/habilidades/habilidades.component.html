@@ -7,7 +7,7 @@
         <div class="progress">
           <div
             class="progress-bar"
-            style="width:{{ habilidad.porcentaje }}%"
+            [style.width]="habilidad.porcentaje+'%'"
           >
             {{ habilidad.porcentaje }}%
           </div>
@@ -38,7 +38,7 @@
         >
           <div
             class="progress-bar"
-            style="width:{{ habilidad.porcentaje }}%"
+            [style.width]="habilidad.porcentaje+'%'"
           >
           <h5 style="transform: rotatez(90deg); z-index: 1; color:azure">{{ habilidad.porcentaje }}%</h5>
           </div>

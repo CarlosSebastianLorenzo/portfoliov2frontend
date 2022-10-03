@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HabilidadesService } from 'src/app/servicios/HTTP.service';
+import { HabilidadesService } from 'src/app/servicios/habilidades.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Habilidades } from '../../Modelos/habilidades.model';
@@ -32,11 +32,10 @@ export class HabilidadesComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    this.protocolo = 'borrar/Habilidades/';
     
     console.log('la habilidad número '+ JSON.stringify(id) + ' fue borrada');
 
-    this.habilidades.borrarDato(id, this.protocolo).subscribe((data) => {});
+    this.habilidades.borrarDato(id).subscribe((data) => {});
 
     // refresh
     this.habilidades.obtenerDatos().subscribe((data) => {
@@ -45,7 +44,6 @@ export class HabilidadesComponent implements OnInit {
   }
 
   onChange(id: number) {
-    this.protocolo = 'crear/Habilidades/';
     
     this.route.paramMap.subscribe((ruta: ParamMap) => {
       this.idusuario = parseInt(ruta.get('ruta')!);
@@ -60,7 +58,7 @@ export class HabilidadesComponent implements OnInit {
 
       console.log('la habilidad número '+ JSON.stringify(id) + ' fue editada');
 
-      this.habilidades.cambiarDato(this.hab, this.protocolo).subscribe((data) => { });
+      this.habilidades.cambiarDato(this.hab).subscribe((data) => { });
 
       // refresh
       this.habilidades.obtenerDatos().subscribe((data) => {

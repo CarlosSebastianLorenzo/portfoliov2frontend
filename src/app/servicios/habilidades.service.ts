@@ -5,6 +5,7 @@ import { HabilidadesComponent } from '../componentes/habilidades/habilidades.com
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { map } from 'rxjs';
 import { Habilidades } from '../Modelos/habilidades.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,24 +15,24 @@ import { Habilidades } from '../Modelos/habilidades.model';
 
 export class HabilidadesService {
  
-  url: string = 'http://localhost:8080/';
+  private url = environment.apiUrl;
+ 
   constructor(private http:HttpClient, private router:Router, private route: ActivatedRoute) { }
   
 obtenerDatos(): Observable<any>
 {
   let id = this.router.url
-  console.log(id);
-   return this.http.get<any>(this.url+id);
+  return this.http.get<any>(this.url+id);
 }
 
-borrarDato(id:number,protocolo:string): Observable<any>
+borrarDato(id:number): Observable<any>
 {
-  return this.http.delete<any>(this.url+protocolo+id);
+  return this.http.delete<any>(this.url+'borrar/Habilidades/'+id);
 }
 
-cambiarDato(hab:Habilidades,protocolo:string): Observable<Habilidades>
+cambiarDato(hab:Habilidades): Observable<Habilidades>
 {
-  return this.http.post<Habilidades>(this.url+protocolo, hab);
+  return this.http.post<Habilidades>(this.url+'crear/Habilidades/', hab);
 }
 
 }

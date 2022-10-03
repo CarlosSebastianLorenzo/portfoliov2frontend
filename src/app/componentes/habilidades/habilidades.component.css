@@ -1,3 +1,22 @@
 .progress{
-    background-color: blueviolet;
+    background: linear-gradient(0deg,#1c1c1cc1,#1c1c1c,#1c1c1cc1);
+}
+.progress-bar{
+    background: linear-gradient(0deg,#1c1c1c,var(--color-primario));
+    animation: ease-out vaiben 8s infinite;
+}
+@keyframes vaiben{
+    from{
+        width: 0%;
+        rotate: 1deg;
+    }
+    20%{
+        rotate: -1deg;
+    }
+    40%{
+        rotate: 1deg;
+    }
+}
+h3{
+    overflow: visible;
 }

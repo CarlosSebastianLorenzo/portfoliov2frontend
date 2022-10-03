@@ -6,7 +6,7 @@
         <div class="nome">{{ habilidad.nombre}}</div>
         <div class="progress">
           <div
-            class="progress-bar progress-bar-striped progress-bar-animated"
+            class="progress-bar"
             style="width:{{ habilidad.porcentaje }}%"
           >
             {{ habilidad.porcentaje }}%
@@ -37,11 +37,11 @@
           style="width: 140px; height: 140px; border-radius: 50%; transform: rotatez(270deg);"
         >
           <div
-            class="progress-bar progress-bar-striped active progress-bar-animated pepe"
+            class="progress-bar"
             style="width:{{ habilidad.porcentaje }}%"
           >
-            
-          </div><h3 style="transform: rotatez(90deg); z-index: 1; color:azure">{{ habilidad.porcentaje }}%</h3>
+          <h5 style="transform: rotatez(90deg); z-index: 1; color:azure">{{ habilidad.porcentaje }}%</h5>
+          </div>
         </div>
         <button
           type="button"

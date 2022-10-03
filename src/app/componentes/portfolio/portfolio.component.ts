@@ -11,8 +11,8 @@ export class PortfolioComponent implements OnInit {
   constructor() { }
   
   ngOnInit(): void {
-    this.modo="light";
-    this.cambiar="dark";
+    this.modo="dark";
+    this.cambiar="light";
   }
   darkmode(){
     if(this.modo=="dark"){

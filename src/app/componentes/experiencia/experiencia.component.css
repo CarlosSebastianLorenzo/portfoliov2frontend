@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+}
+row, col{
+    justify-content: center;
+    text-align: center;
+}
+p, h1{
+    color: var(--color-primario)
+}
+img{
+    max-width: 40%;
+}

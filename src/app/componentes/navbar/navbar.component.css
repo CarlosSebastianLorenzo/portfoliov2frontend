@@ -1,11 +1,9 @@
 .navbar{
     position:fixed;
     width: 100%;
-    
 }
 .nav-link:hover{
-    background-color: var(--color-primario);
-}
-.nav-link{
-    border-radius: 10px;
+    color: var(--color-primario);
+    border-bottom: .5px solid var(--color-primario);
+    border-top: .5px solid var(--color-primario);
 }

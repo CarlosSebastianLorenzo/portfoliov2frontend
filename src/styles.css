@@ -45,7 +45,7 @@ from{
     
     background: linear-gradient(135deg, #000000b5, #ffffff4d);
     border-radius: 10px;
-    box-shadow: 0 8px 32px 0 #1f26875e;
+    box-shadow: 0 8px 32px 0 #0f0f0f5e;
     backdrop-filter: blur(4px);
     border: solid 1px #f0f0f050;
 }
@@ -66,9 +66,28 @@ from{
     50%{
         background-position-x: 40vw;
         
-    }
-   
+    } 
 }
+
+.vertical-shine{
+    background: linear-gradient(to bottom, #4d4d4d00 0%, #ffffff41 35%, #4d4d4d00 70%);
+    animation-name: vertical-shine;
+    animation-duration:28s;
+    animation-iteration-count:infinite;
+    animation-direction:reverse;
+    animation-timing-function: ease-in-out;
+    background-position: 0;
+}
+
+@keyframes vertical-shine{
+    from{
+        background-position:0;
+    }
+    50%{
+        background-position-y: 10vw;
+    } 
+}
+
 .flotar{
 animation-name: flotar;
 animation-duration:2s;
@@ -80,4 +99,51 @@ animation-timing-function: ease;
     from{
         translate: 0 5%; 
     }
+}
+
+/*Borde iluminado*/
+.box{
+    position: relative;
+    border-radius: 8px;
+    background: #1c1c1c;
+    overflow: hidden;
+}
+.box::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, var(--color-primario));
+    transform-origin: bottom right;
+    animation: girar 6s linear infinite;
+}
+.box::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, var(--color-primario));
+    transform-origin: bottom right;
+    animation: girar 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes girar{
+    from{
+        rotate: 0deg;
     }
+    to{
+        rotate: 360deg;
+    }
+}
+.caja{
+    position: relative;
+    background: #1c1c1c;
+    inset: 2px;
+    z-index: 1;
+    height:99%;
+    border-radius: 8px;
+}

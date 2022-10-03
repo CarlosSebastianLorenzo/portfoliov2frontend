@@ -5,15 +5,16 @@
 
 .perfil{
     border-radius: 10px;
-    width: min(60vw, 350px);
-    height: min(60vw, 350px);
+    width: min(45vw, 350px);
+    height: min(45vw, 350px);
     
 }
 
 .div-imagen{
-    text-align: center;
-    width:  min(80vw, 450px);
-    height: min(80vw, 450px);
+    justify-content: center;
+    vertical-align: center;
+    width:  min(50vw, 450px);
+    height: min(50vw, 450px);
 }
 .div-imagen:hover{
     
@@ -28,4 +29,12 @@
     background-attachment: fixed;
     background-color: var(--color-primario);
     background-blend-mode:darken;
+}
+h1,h2,p{
+    text-shadow: 2px 2px 5px #100f0f,
+    2px 2px 10px #100f0f,
+    2px 2px 15px #100f0f;
+}
+h2{
+    color: var(--color-primario);
 }

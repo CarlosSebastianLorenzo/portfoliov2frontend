@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +8,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   ruta: string;
-  constructor(private router : Router) {
+  idusuario: number;
+  constructor(private router : Router, private route : ActivatedRoute) {
     this.ruta = "#";
+    this.idusuario = 0;
    }
 
   ngOnInit(): void {
-    this.ruta = this.router.url;
-  }
+    //this.ruta = this.router.url;
+    this.route.paramMap.subscribe((rut: ParamMap) => {
+      this.idusuario = parseInt(rut.get('ruta')!);
+      this.ruta = "portfolio/"+this.idusuario;
+  });
 
+}
 }

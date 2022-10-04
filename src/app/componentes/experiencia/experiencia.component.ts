@@ -51,7 +51,7 @@ export class ExperienciaComponent implements OnInit {
       this.idusuario = parseInt(ruta.get('ruta')!);
 
       this.exp = {
-      id: 1,
+      id: id,
       empresa : 'Nasa',
       puesto : 'Dueño',
       fechaInicio : new Date(2022,10,2),

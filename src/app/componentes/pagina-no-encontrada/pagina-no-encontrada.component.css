@@ -1,0 +1,66 @@
+.contain{
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: arcoiris 20s linear infinite;
+    background: radial-gradient(#ffffff5b, aqua);
+}
+a{
+    font-size: 1.5rem;
+    color: #1c1c1c84;
+}
+h1{
+    font-size: 3rem;
+    color: rgba(255, 0, 255, 0.5);
+    text-shadow: 2px 4px 0px rgba(255, 255, 255, 0.5);
+}
+.cero{
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 5rem;
+    position: relative;
+    animation: girar 10s ease infinite alternate;
+    text-shadow: 2px 4px 0px rgba(255, 255, 255, 0.5);
+}
+.error::after{
+    color: rgba(0, 255, 0, 0.5);
+    position: absolute;
+    content:'4';
+    animation: girar 4s ease-in-out infinite reverse;
+    transform-origin: -1ch;
+}
+.error::before{
+    color: rgba(0, 0, 255, 0.5);
+
+    translate: -1ch;
+    content:'4';
+    position: absolute;
+    animation: girar 6s ease-in-out infinite;
+    transform-origin: 2ch;
+}
+@keyframes arcoiris {
+    from{
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+.vanish{
+    animation: vanish 3s ease-in-out infinite alternate;
+}
+@keyframes vanish {
+    from{
+        scale: 1;
+    }
+   
+    51%{z-index: -100;
+        opacity: 0.1}
+    to{
+        opacity: 0.1;
+        scale: .9;        
+    }
+}

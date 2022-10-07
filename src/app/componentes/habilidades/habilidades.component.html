@@ -2,7 +2,15 @@
   <div class="row">
     <div class="col-sm-12 col-md-6 d-inline text-center">
       <h3>Habilidades Profesionales</h3>
-      <div class="cada habilidad" *ngFor="let habilidad of mishabilidades">
+      <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      >
+      Agregar Habilidad
+    </button>
+      <div  *ngFor="let habilidad of mishabilidades">
         <div class="nome">{{ habilidad.nombre}}</div>
         <div class="progress">
           <div
@@ -21,13 +29,14 @@
         </button>
         <button
           type="button"
-          class="btn btn-warning"
-          (click)="onChange(habilidad.id)"
-        >
+          class="btn btn-primary"
+          (click)="openModal(habilidad)"
+          >
           x
         </button>
       </div>
     </div>
+    <!--SOFT SKILLS-->
     <div class="col-sm-12 col-md-6 d-inline text-center mx-auto">
       <h3>Habilidades Sociales</h3>
       <div class="cada habilidad" *ngFor="let habilidad of mishabilidades">
@@ -70,4 +79,66 @@
       </div>
     </div>
   </div>
+          <!--MODAL-->
+        <div *ngFor="let habilidad of habilidadesmodal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content glass">
+              <div class="modal-header shine">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Habilidad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >
+              <div class="modal-body">
+                  <input  type="hidden"
+                          class="form-control"
+                          name="id"
+                          id="id"
+                          formControlName="id"
+                          [ngModel]="habilidad.id"
+                          >
+                  <div class="mb-3">
+                    <label for="nombre" class="col-form-label">Nombre</label>
+                    <input  type="text"
+                            class="form-control"
+                            name="nombre"
+                            id="nombre"
+                            formControlName="nombre"
+                            [ngModel]="habilidad.nombre"
+                            >
+                  </div>
+                  <div class="mb-3">
+                    <label for="imagen" class="col-form-label">Imagen</label>
+                    <input  type="text"
+                            class="form-control"
+                            name="imagen"
+                            id="imagen"
+                            formControlName="imagen"
+                            ngModel="{{habilidad.imagen}}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="porcentaje" class="col-form-label">Porcentaje</label>
+                    <input  type="range"
+                            class="form-range"
+                            min="0" max="100" step="5"
+                            name="porcentaje"
+                            id="porcentaje"
+                            formControlName="porcentaje"
+                            [ngModel]="habilidad.porcentaje">
+                  </div>
+              </div>
+              <div class="modal-footer shine">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button
+                type="submit"
+                class="btn glass"
+                data-bs-dismiss="modal"
+                >
+                Enviar
+                </button>
+              </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        
 </div>

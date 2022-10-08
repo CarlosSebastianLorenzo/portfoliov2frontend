@@ -46,6 +46,7 @@ export class HabilidadesComponent implements OnInit {
       porcentaje: 50,
     }]
   }
+
   refresh(milisegundos:number) {
          setTimeout(() => {
           this.habilidades.obtenerDatos().subscribe((data) => {
@@ -56,15 +57,30 @@ export class HabilidadesComponent implements OnInit {
 
   onDelete(id: number) {
     
-    console.log('la habilidad número '+ JSON.stringify(id) + ' fue borrada');
+    // alert('la habilidad número '+ JSON.stringify(id) + ' ha borrada');
 
     this.habilidades.borrarDato(id).subscribe((data) => {});
+    
 
     this.refresh(50);
+
+  
   }
 
   openModal(habilidades:Habilidades){
     this.habilidadesmodal =[habilidades];
+    setTimeout(() => {
+      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      myModal.show();
+    }, 50);
+
+  }
+  nuevaHabilidad(){
+    this.habilidadesmodal = [{
+      nombre: '',
+      imagen: '',
+      porcentaje: 50
+    }]
     setTimeout(() => {
       var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
       myModal.show();
@@ -88,14 +104,6 @@ export class HabilidadesComponent implements OnInit {
     //  console.log('la habilidad número '+ JSON.stringify(this.Id) + ' fue editada');
      console.log(this.hab)
      this.habilidades.cambiarDato(this.hab).subscribe((data) => { });
-
-      setTimeout(() => {
-        this.habilidadesmodal=[{
-          nombre: '',
-          imagen: '',
-          porcentaje: 50,
-        }]
-      }, 50);
 
     this.refresh(500);
    });

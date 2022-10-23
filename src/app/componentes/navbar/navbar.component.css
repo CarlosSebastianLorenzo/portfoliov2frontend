@@ -5,27 +5,45 @@
 .nav-link:hover{
     position: relative;
     color: var(--color-primario);
-    /* border-bottom: .5px solid var(--color-primario);
-    border-top: .5px solid var(--color-primario); */
 }
 .nav-link:hover::before{
     height: 10%;
-    width: 100%;
+    translate: 0 900%;
+    z-index: -20;
     content:'';
-    translate: -0.5em 1.5em;
+    inset:0;
     border-radius: 50px;
     position: absolute;
-    background: var(--color-primario);
-    color: var(--color-primario);
+    background-color: var(--color-primario);
     animation: show-bottom .5s;
 }
 @keyframes show-bottom{
     from{
         opacity: 0;
-        translate: -0.5em 2em;
+        translate: 0 1000%;
     }
     to{
         opacity: 1;
-        translate: -0.5em 1.5em;
+        translate: 0 900%;
     }
+}
+.nav-link:hover::after{
+    height: 10%;
+    z-index: -20;
+    content:'';
+    inset:0;
+    border-radius: 50px;
+    position: absolute;
+    background: var(--color-primario);
+    animation: show-top .5s;
+}
+@keyframes show-top {
+    from{
+        opacity: 0;
+        translate: 0 -100%;
+    }
+    to{
+        opacity: 1;
+        translate: 0 0;
+}
 }

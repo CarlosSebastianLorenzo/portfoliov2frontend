@@ -3,15 +3,28 @@
   <div class="row gap-1 gap-md-3 justify-content-center" >
     <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let experiencia of misexperiencias">
       <div class="caja">
+        <img class="rounded img-fluid" [src]="experiencia.logo" alt="">
         <h3>{{ experiencia.puesto }}</h3>
         <p class="py-1 m-0">
           {{ experiencia.fechaInicio | date: "dd/MM/yyyy" }} -
           {{ experiencia.fechaFinal | date: "dd/MM/yyyy" }}
-        </p>
-        <img class="rounded img-fluid" [src]="experiencia.logo" alt="">
-        
+        </p>        
         <h5>{{ experiencia.empresa }}</h5>
         <p>{{ experiencia.actividades }}</p>
+        <button
+        type="button"
+        class="btn btn-danger"
+        (click)="onDelete(experiencia.id)"
+      >
+        x
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning"
+        (click)="onChange(experiencia.id)"
+      >
+        x
+      </button>
       </div>
     </div>
   </div>

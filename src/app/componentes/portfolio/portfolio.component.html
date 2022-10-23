@@ -1,9 +1,11 @@
 <div class="blur pantallacompleta">
 <div class="bg-{{modo}} text-bg-{{modo}}">
-
-<app-navbar></app-navbar>
+    
+<app-navbar>
+</app-navbar>
 <section id="acercaDe">
-<app-acerca-de></app-acerca-de>
+    <app-acerca-de></app-acerca-de>
+    <button type="button" class="btn glass btn-{{cambiar}}" (click)="darkmode()">{{cambiar}}</button>
 </section>
 <section id="experiencia">
 <app-experiencia></app-experiencia>
@@ -17,7 +19,9 @@
 <section id="proyectos">
 <app-proyectos></app-proyectos>
 </section>
-<button type="button" class="btn glass btn-{{cambiar}}" (click)="darkmode()">{{cambiar}}</button>
+<section>
+<app-contacto></app-contacto>
+</section>
 
 </div>
 </div>

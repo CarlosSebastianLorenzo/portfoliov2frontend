@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Habilidades } from '../../Modelos/habilidades.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AutenticacionService } from '../../servicios/autenticacion.service';
 declare var bootstrap: any;
 
 @Component({
@@ -18,9 +19,13 @@ export class HabilidadesComponent implements OnInit {
   idusuario: number = 0;
   protocolo: string = '';
   formulario:FormGroup;
+  isLogged: boolean = false;
   
 
-  constructor(private formBuilder: FormBuilder, private habilidades: HabilidadesService,private route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder,
+              private habilidades: HabilidadesService,
+              private route: ActivatedRoute,
+              private autenticacionService:AutenticacionService) {
     this.hab = {
       id: 1,
       nombre: '',
@@ -45,6 +50,14 @@ export class HabilidadesComponent implements OnInit {
       imagen: '',
       porcentaje: 50,
     }]
+    //Verifica si la ruta coincide con el usuario logueado y muestra los botones
+    this.route.paramMap.subscribe((ruta: ParamMap) => {
+     this.idusuario = parseInt(ruta.get('ruta')!);
+    var currentUser=this.autenticacionService.UsuarioAutenticado;
+    if (currentUser && currentUser.id==this.idusuario){
+      this.isLogged=true;
+    }
+  });
   }
 
   refresh(milisegundos:number) {

@@ -11,10 +11,12 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { LoginComponent } from './componentes/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
+import { InterceptorService } from './servicios/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProyectosComponent,
     AcercaDeComponent,
     LoginComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgCircleProgressModule.forRoot({}),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

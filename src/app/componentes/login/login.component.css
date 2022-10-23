@@ -1,0 +1,22 @@
+.row{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contain{
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    animation: arcoiris 20s linear infinite;
+    background: radial-gradient(#ffffff5b, aqua);
+}
+@keyframes arcoiris {
+    from{
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
+    }
+}

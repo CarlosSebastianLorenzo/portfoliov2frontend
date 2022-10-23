@@ -22,17 +22,17 @@ export class HabilidadesService {
 obtenerDatos(): Observable<any>
 {
   let id = this.router.url
-  return this.http.get<any>(this.url+id);
+  return this.http.get<any>(this.url+'/api'+id);
 }
 
 borrarDato(id:number): Observable<any>
 {
-  return this.http.delete<any>(this.url+'borrar/Habilidades/'+id);
+  return this.http.delete<any>(this.url+'/borrar/Habilidades/'+id);
 }
 
 cambiarDato(hab:Habilidades): Observable<Habilidades>
 {
-  return this.http.post<Habilidades>(this.url+'crear/Habilidades/', hab);
+  return this.http.post<Habilidades>(this.url+'/crear/Habilidades/', hab);
 }
 
 }

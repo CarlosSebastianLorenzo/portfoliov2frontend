@@ -18,16 +18,16 @@ export class ExperienciaService {
   obtenerDatos(): Observable<any>
   {
     let id = this.router.url
-    return this.http.get<any>(this.url+id);
+    return this.http.get<any>(this.url+'/api'+id);
   }
   
   borrarDato(id:number): Observable<any>
   {
-    return this.http.delete<any>(this.url+'borrar/Experiencia/'+id);
+    return this.http.delete<any>(this.url+'/borrar/Experiencia/'+id);
   }
   
   cambiarDato(exp:Experiencias): Observable<Experiencias>
   {
-    return this.http.post<Experiencias>(this.url+'crear/Experiencia/', exp);
+    return this.http.post<Experiencias>(this.url+'/crear/Experiencia/', exp);
   }  
 }

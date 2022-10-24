@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class NavbarComponent implements OnInit {
   ruta: string;
   idusuario: number;
-  constructor(private router : Router, private route : ActivatedRoute) {
+  isLogged: boolean = false;
+  constructor(private router : Router,
+              private route : ActivatedRoute,
+              private autenticacionService : AutenticacionService) {
     this.ruta = "#";
     this.idusuario = 0;
    }
@@ -19,7 +23,19 @@ export class NavbarComponent implements OnInit {
     this.route.paramMap.subscribe((rut: ParamMap) => {
       this.idusuario = parseInt(rut.get('ruta')!);
       this.ruta = "portfolio/"+this.idusuario;
-  });
+    });
+    var currentUser=this.autenticacionService.UsuarioAutenticado;
+    if(currentUser&& currentUser.accessToken){
+      this.isLogged = true;
+    }
+  }
 
-}
+  logOut(): void{
+    setTimeout(() => {
+    window.sessionStorage.clear();
+    this.isLogged = false;
+    },50)
+    window.location.reload();
+  }
+
 }

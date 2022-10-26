@@ -1,1 +1,122 @@
-<p>proyectos works!</p>
+<h1 class="pt-3">Proyectos</h1>
+<div class="container">
+  <div class="row gap-1 gap-md-3 py-5 justify-content-center" >
+    <button
+    type="button"
+    class="btn btn-primary"
+    (click)="nuevoProyecto()"
+    *ngIf="isLogged"
+    >Nuevo Proyecto</button>
+  </div>
+  <div class="row gap-1 gap-md-3 justify-content-center" >
+    <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let proyecto of misproyectos">
+      <div class="caja">
+        <a [href]="proyecto.link">
+            <img class="rounded img-fluid" [src]="proyecto.imagen" alt="">
+            <h3>{{ proyecto.nombre }}</h3>
+            <p class="py-1 m-0">
+            {{ proyecto.fecha | date: "dd/MM/yyyy" }}
+            </p>        
+            <p>{{ proyecto.descripcion }}</p>
+        </a>
+        <button
+        type="button"
+        class="btn btn-danger"
+        (click)="onDelete(proyecto.id)"
+        *ngIf="isLogged"
+        >
+        x
+        </button>
+        <button
+        type="button"
+        class="btn btn-warning"
+        (click)="openModal(proyecto)"
+        *ngIf="isLogged"
+        >
+        x
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--MODAL-->
+  <div *ngFor="let proyecto of proyectosmodal" class="modal fade" id="proyectosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content glass">
+        <div class="modal-header shine">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >
+          <div class="modal-body">
+            <input  type="hidden"
+                    class="form-control"
+                    name="id"
+                    id="id"
+                    formControlName="id"
+                    [ngModel]="proyecto.id"
+                    >
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">Nombre</label>
+              <input  type="text"
+                      class="form-control"
+                      name="nombre"
+                      id="nombre"
+                      formControlName="nombre"
+                      [ngModel]="proyecto.nombre"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="fecha" class="col-form-label">Fecha</label>
+              <input  type="date"
+                      class="form-control"
+                      name="fecha"
+                      id="fecha"
+                      formControlName="fecha"
+                      value="{{proyecto.fecha}}"
+                      [ngModel]="proyecto.fecha"
+                      >
+            </div>
+            <div class="mb-3">
+                <label for="link" class="col-form-label">Link del Proyecto</label>
+                <input  type="text"
+                        class="form-control"
+                        name="link"
+                        id="link"
+                        formControlName="link"
+                        [ngModel]="proyecto.link">
+            </div>
+            <div class="mb-3">
+              <label for="imagen" class="col-form-label">Imagen del Proyecto</label>
+              <input  type="text"
+                      class="form-control"
+                      name="imagen"
+                      id="imagen"
+                      formControlName="imagen"
+                      [ngModel]="proyecto.imagen">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="col-form-label">Descripción</label>
+              <input  type="textarea"
+                      class="form-control"
+                      name="descripcion"
+                      id="descripcion"
+                      formControlName="descripcion"
+                      [ngModel]="proyecto.descripcion"
+                      >
+            </div>
+          </div>
+          <div class="modal-footer shine">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button
+            type="submit"
+            class="btn glass"
+            data-bs-dismiss="modal"
+            >
+            Enviar
+            </button>
+          </div>
+        </form>
+      </div>  
+    </div>
+  </div>  
+</div>

@@ -77,7 +77,7 @@ export class EducacionComponent implements OnInit {
   openModal(educacion:Educacion){
     this.educacionmodal =[educacion];
     setTimeout(() => {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      var myModal = new bootstrap.Modal(document.getElementById('educacionModal'));
       myModal.show();
     }, 50);
   } 
@@ -116,7 +116,7 @@ export class EducacionComponent implements OnInit {
       fechaFinal : new Date(2022,10,2),
     }]
     setTimeout(() => {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      var myModal = new bootstrap.Modal(document.getElementById('educacionModal'));
       myModal.show();
     }, 50);
 

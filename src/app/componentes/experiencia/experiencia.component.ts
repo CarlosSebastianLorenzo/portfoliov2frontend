@@ -79,7 +79,7 @@ export class ExperienciaComponent implements OnInit {
   openModal(experiencias:Experiencias){
     this.experienciasmodal =[experiencias];
     setTimeout(() => {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      var myModal = new bootstrap.Modal(document.getElementById('experienciaModal'));
       myModal.show();
     }, 50);
   }  
@@ -109,6 +109,7 @@ export class ExperienciaComponent implements OnInit {
 
     });
   }
+
   nuevaExperiencia(){
     this.experienciasmodal = [{
       empresa : '',
@@ -119,7 +120,7 @@ export class ExperienciaComponent implements OnInit {
       actividades : '',
     }]
     setTimeout(() => {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      var myModal = new bootstrap.Modal(document.getElementById('experienciaModal'));
       myModal.show();
     }, 50);
 

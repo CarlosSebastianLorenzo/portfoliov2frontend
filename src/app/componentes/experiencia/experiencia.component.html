@@ -39,11 +39,11 @@
     </div>
   </div>
   <!--MODAL-->
-  <div *ngFor="let experiencia of experienciasmodal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div *ngFor="let experiencia of experienciasmodal" class="modal fade" id="experienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content glass">
         <div class="modal-header shine">
-          <h5 class="modal-title" id="exampleModalLabel">Editar Habilidad</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Editar Experiencia</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >

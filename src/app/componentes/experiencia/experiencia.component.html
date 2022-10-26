@@ -1,12 +1,14 @@
- <h1 class="py-5">Experiencia Laboral</h1>
- <div class="container">
-  <div class="row gap-1 gap-md-3 justify-content-center" >
+<h1 class="pt-3">Experiencia Laboral</h1>
+<div class="container">
+  <div class="row gap-1 gap-md-3 py-5 justify-content-center" >
     <button
     type="button"
     class="btn btn-primary"
     (click)="nuevaExperiencia()"
     *ngIf="isLogged"
     >NuevaExperiencia</button>
+  </div>
+  <div class="row gap-1 gap-md-3 justify-content-center" >
     <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let experiencia of misexperiencias">
       <div class="caja">
         <img class="rounded img-fluid" [src]="experiencia.logo" alt="">
@@ -22,98 +24,98 @@
         class="btn btn-danger"
         (click)="onDelete(experiencia.id)"
         *ngIf="isLogged"
-      >
+        >
         x
-      </button>
-      <button
+        </button>
+        <button
         type="button"
         class="btn btn-warning"
         (click)="openModal(experiencia)"
         *ngIf="isLogged"
-      >
+        >
         x
-      </button>
+        </button>
       </div>
     </div>
   </div>
-    <!--MODAL-->
-    <div *ngFor="let experiencia of experienciasmodal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content glass">
-          <div class="modal-header shine">
-            <h5 class="modal-title" id="exampleModalLabel">Editar Habilidad</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-            <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >
+  <!--MODAL-->
+  <div *ngFor="let experiencia of experienciasmodal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content glass">
+        <div class="modal-header shine">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Habilidad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >
           <div class="modal-body">
-              <input  type="hidden"
+            <input  type="hidden"
+                    class="form-control"
+                    name="id"
+                    id="id"
+                    formControlName="id"
+                    [ngModel]="experiencia.id"
+                    >
+            <div class="mb-3">
+              <label for="empresa" class="col-form-label">Empresa</label>
+              <input  type="text"
                       class="form-control"
-                      name="id"
-                      id="id"
-                      formControlName="id"
-                      [ngModel]="experiencia.id"
+                      name="empresa"
+                      id="empresa"
+                      formControlName="empresa"
+                      [ngModel]="experiencia.empresa"
                       >
-              <div class="mb-3">
-                <label for="empresa" class="col-form-label">Empresa</label>
-                <input  type="text"
-                        class="form-control"
-                        name="empresa"
-                        id="empresa"
-                        formControlName="empresa"
-                        [ngModel]="experiencia.empresa"
-                        >
-              </div>
-              <div class="mb-3">
-                <label for="puesto" class="col-form-label">Puesto</label>
-                <input  type="text"
-                        class="form-control"
-                        name="puesto"
-                        id="puesto"
-                        formControlName="puesto"
-                        [ngModel]="experiencia.puesto"
-                        >
-              </div>
-              <div class="mb-3">
-                <label for="fechaInicio" class="col-form-label">Fecha de Inicio</label>
-                <input  type="date"
-                        class="form-control"
-                        name="fechaInicio"
-                        id="fechaInicio"
-                        formControlName="fechaInicio"
-                        value="{{experiencia.fechaInicio}}"
-                        [ngModel]="experiencia.fechaInicio"
-                        >
-              </div>
-              <div class="mb-3">
-                <label for="fechaFinal" class="col-form-label">Fecha de Salida</label>
-                <input  type="date"
-                        class="form-control"
-                        name="fechaFinal"
-                        id="fechaFinal"
-                        formControlName="fechaFinal"
-                        value="{{experiencia.fechaFinal}}"
-                        [ngModel]="experiencia.fechaFinal"
-                        >
-              </div>
-              <div class="mb-3">
-                <label for="logo" class="col-form-label">Logo de la Empresa</label>
-                <input  type="text"
-                        class="form-control"
-                        name="logo"
-                        id="logo"
-                        formControlName="logo"
-                        [ngModel]="experiencia.logo">
-              </div>
-              <div class="mb-3">
-                <label for="actividades" class="col-form-label">Actividades</label>
-                <input  type="textarea"
-                        class="form-control"
-                        name="actividades"
-                        id="actividades"
-                        formControlName="actividades"
-                        [ngModel]="experiencia.actividades"
-                        >
-              </div>
+            </div>
+            <div class="mb-3">
+              <label for="puesto" class="col-form-label">Puesto</label>
+              <input  type="text"
+                      class="form-control"
+                      name="puesto"
+                      id="puesto"
+                      formControlName="puesto"
+                      [ngModel]="experiencia.puesto"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="fechaInicio" class="col-form-label">Fecha de Inicio</label>
+              <input  type="date"
+                      class="form-control"
+                      name="fechaInicio"
+                      id="fechaInicio"
+                      formControlName="fechaInicio"
+                      value="{{experiencia.fechaInicio}}"
+                      [ngModel]="experiencia.fechaInicio"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="fechaFinal" class="col-form-label">Fecha de Salida</label>
+              <input  type="date"
+                      class="form-control"
+                      name="fechaFinal"
+                      id="fechaFinal"
+                      formControlName="fechaFinal"
+                      value="{{experiencia.fechaFinal}}"
+                      [ngModel]="experiencia.fechaFinal"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="logo" class="col-form-label">Logo de la Empresa</label>
+              <input  type="text"
+                      class="form-control"
+                      name="logo"
+                      id="logo"
+                      formControlName="logo"
+                      [ngModel]="experiencia.logo">
+            </div>
+            <div class="mb-3">
+              <label for="actividades" class="col-form-label">Actividades</label>
+              <input  type="textarea"
+                      class="form-control"
+                      name="actividades"
+                      id="actividades"
+                      formControlName="actividades"
+                      [ngModel]="experiencia.actividades"
+                      >
+            </div>
           </div>
           <div class="modal-footer shine">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -125,8 +127,8 @@
             Enviar
             </button>
           </div>
-            </form>
-        </div>
-      </div>
+        </form>
+      </div>  
     </div>
+  </div>  
 </div>

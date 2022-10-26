@@ -65,7 +65,7 @@ export class ExperienciaComponent implements OnInit {
         this.misexperiencias = data.experiencia;
       });
     }, milisegundos);
-}
+  }
 
   onDelete(id: number) {
     

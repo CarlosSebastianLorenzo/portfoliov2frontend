@@ -1,1 +1,123 @@
-<p>educacion works!</p>
+<h1 class="pt-5">Educacion</h1>
+<div class="container">
+  <div class="row gap-1 gap-md-3 py-5 justify-content-center" >
+    <button
+    type="button"
+    class="btn btn-primary"
+    (click)="nuevaEducacion()"
+    *ngIf="isLogged"
+    >NuevaEducacion</button>
+  </div>
+  <div class="row gap-1 gap-md-3 justify-content-center" >
+    <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let educacion of mieducacion">
+      <div class="caja">
+        <img class="rounded img-fluid" [src]="educacion.logo" alt="">
+        <h3>{{ educacion.titulo }}</h3>
+        <p class="py-1 m-0">
+          {{ educacion.fechaInicial | date: "dd/MM/yyyy" }} -
+          {{ educacion.fechaFinal | date: "dd/MM/yyyy" }}
+        </p>        
+        <h5>{{ educacion.institucion }}</h5>
+        <button
+        type="button"
+        class="btn btn-danger"
+        (click)="onDelete(educacion.id)"
+        *ngIf="isLogged"
+        >
+        x
+        </button>
+        <button
+        type="button"
+        class="btn btn-warning"
+        (click)="openModal(educacion)"
+        *ngIf="isLogged"
+        >
+        x
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--MODAL-->
+  <div *ngFor="let educacion of educacionmodal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content glass">
+        <div class="modal-header shine">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Educacion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >
+          <div class="modal-body">
+            <input  type="hidden"
+                    class="form-control"
+                    name="id"
+                    id="id"
+                    formControlName="id"
+                    [ngModel]="educacion.id"
+                    >
+            <div class="mb-3">
+              <label for="institucion" class="col-form-label">Institucion</label>
+              <input  type="text"
+                      class="form-control"
+                      name="institucion"
+                      id="institucion"
+                      formControlName="institucion"
+                      [ngModel]="educacion.institucion"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="titulo" class="col-form-label">Titulo</label>
+              <input  type="text"
+                      class="form-control"
+                      name="titulo"
+                      id="titulo"
+                      formControlName="titulo"
+                      [ngModel]="educacion.titulo"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="fechaInicial" class="col-form-label">Fecha de Inicio</label>
+              <input  type="date"
+                      class="form-control"
+                      name="fechaInicial"
+                      id="fechaInicial"
+                      formControlName="fechaInicial"
+                      value="{{educacion.fechaInicial}}"
+                      [ngModel]="educacion.fechaInicial"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="fechaFinal" class="col-form-label">Fecha de Salida</label>
+              <input  type="date"
+                      class="form-control"
+                      name="fechaFinal"
+                      id="fechaFinal"
+                      formControlName="fechaFinal"
+                      value="{{educacion.fechaFinal}}"
+                      [ngModel]="educacion.fechaFinal"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="logo" class="col-form-label">Logo de la Institución</label>
+              <input  type="text"
+                      class="form-control"
+                      name="logo"
+                      id="logo"
+                      formControlName="logo"
+                      [ngModel]="educacion.logo">
+            </div>
+          </div>
+          <div class="modal-footer shine">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button
+            type="submit"
+            class="btn glass"
+            data-bs-dismiss="modal"
+            >
+            Enviar
+            </button>
+          </div>
+        </form>
+      </div>  
+    </div>
+  </div>  
+</div>

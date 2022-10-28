@@ -9,13 +9,12 @@ p, h1{
     color: var(--color-primario)
 }
 .imge{
-    width: 18rem;
     position:relative;
     overflow: hidden;
-    transition: scale ease-in-out .5s;
+    transition: translate ease-in-out .5s;
 }
 .imge:hover{
-    scale:1.05;
+    translate:0 -1%;
 }
 .imge::after{
     content:' ';

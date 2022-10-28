@@ -15,30 +15,31 @@
       
       <a (click)="goToLink(proyecto.link)" style="text-decoration:none; cursor: pointer;">
         <img  class="card-img-top" [src]="proyecto.imagen" alt="">
-      </a>
-      <div class="card-body">
-            <h3 class="card-title">{{ proyecto.nombre }}</h3>
-            <p class="card-text">
-            {{ proyecto.fecha | date: "dd/MM/yyyy" }}
-            </p>        
-            <p class="card-text">{{ proyecto.descripcion }}</p>
-        <button
-        type="button"
-        class="btn glass btn-danger mb-3"
-        (click)="onDelete(proyecto.id)"
-        *ngIf="isLogged"
-        >
-        <i class="bi bi-trash3-fill"></i>
-        </button>
-        <button
-        type="button"
-        class="btn colorPrimario glass text-white mb-3"
-        (click)="openModal(proyecto)"
-        *ngIf="isLogged"
-        >
-        <i class="bi bi-pencil-square"></i>
-        </button>
-      </div>
+        <div class="card-body">
+              <h3 class="card-title">{{ proyecto.nombre }}</h3>
+              <p class="card-text">
+              {{ proyecto.fecha | date: "dd/MM/yyyy" }}
+              </p>        
+              <p class="card-text">{{ proyecto.descripcion }}</p>
+          
+          <button
+          type="button"
+          class="btn glass btn-danger mb-3"
+          (click)="onDelete(proyecto.id)"
+          *ngIf="isLogged"
+          >
+          <i class="bi bi-trash3-fill"></i>
+          </button>
+          <button
+          type="button"
+          class="btn colorPrimario glass text-white mb-3"
+          (click)="openModal(proyecto)"
+          *ngIf="isLogged"
+          >
+          <i class="bi bi-pencil-square"></i>
+          </button>
+        </div>
+      </a>  
     </div>
   </div>
   <!--MODAL-->

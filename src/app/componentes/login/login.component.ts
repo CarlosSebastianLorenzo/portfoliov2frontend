@@ -10,6 +10,7 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 })
 export class LoginComponent implements OnInit {
   formulario:FormGroup;
+  
   constructor(private formBuilder: FormBuilder, private autenticacionService:AutenticacionService, private ruta:Router) { 
     this.formulario=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
@@ -36,5 +37,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onRegister(event: Event){
+    event.preventDefault;
+
+    this.autenticacionService.Registrarse(this.formulario.value).subscribe(data=>{
+      // console.log(JSON.stringify(data));
+      alert(JSON.stringify(data));
+    });
+
+  }
 
 }

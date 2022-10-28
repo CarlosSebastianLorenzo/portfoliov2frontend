@@ -1,44 +1,82 @@
 <div class="container-fluid bg-dark">
-    <div class="row">
-        <div class="col-8 col-sm-6 col-md-4 glass box text-white">
-          <div class="caja p-5">
-          <h1 class="text-center pt-5">Iniciar Sesión</h1>
-<form [formGroup]="formulario" class="py-4" (ngSubmit)="onEnviar($event)">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input formControlName="email"
-      [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}"
-      type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div *ngIf="Email?.errors && Email?.touched">
-      <p *ngIf="Email?.hasError('required')" class="text-danger">
-        El email es requerido
-      </p>
-      <p *ngIf="Email?.hasError('email')" class="text-danger">
-        El formato de email debe ser válido.
-      </p>
-    </div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input formControlName="contrasenia" 
-      [ngClass]="{'is-invalid': Contrasenia?.errors && Contrasenia?.touched, 'is-valid': !Contrasenia?.errors && Contrasenia?.touched}"
-      type="password" class="form-control" id="exampleInputPassword1">
-      <div *ngIf="Contrasenia?.errors && Contrasenia?.touched">
-        <p *ngIf="Contrasenia?.hasError('required')" class="text-danger">
-          La Contraseña es requerida
-        </p>
-        <p *ngIf="Contrasenia?.errors?.['minlength']" class="text-danger">
-          La Contraseña debe tener al menos 8 caracteres.
-        </p>
+  <div class="row">
+    <!-- loguearse -->
+    <div class="col-sm-6 col-md-4 glass box text-white">
+      <div class="caja p-5">
+        <h1 class="text-center pt-5">Iniciar Sesión</h1>
+        <form [formGroup]="formulario" class="py-4" (ngSubmit)="onEnviar($event)">
+          <div class="mb-3">
+            <label for="exampleInputEmailLogin" class="form-label">Email</label>
+            <input formControlName="email" placeholder="hola@gmail.com" autocomplete="username"
+            [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}"
+            type="email" class="form-control" id="exampleInputEmailLogin" aria-describedby="emailHelp">
+            <div *ngIf="Email?.errors && Email?.touched">
+              <p *ngIf="Email?.hasError('required')" class="text-danger">
+                El email es requerido
+              </p>
+              <p *ngIf="Email?.hasError('email')" class="text-danger">
+                El formato de email debe ser válido.
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPasswordLogin" class="form-label">Contraseña</label>
+            <input formControlName="contrasenia" placeholder="12345678" autocomplete="current-password"
+            [ngClass]="{'is-invalid': Contrasenia?.errors && Contrasenia?.touched, 'is-valid': !Contrasenia?.errors && Contrasenia?.touched}"
+            type="password" class="form-control" id="exampleInputPasswordLogin">
+            <div *ngIf="Contrasenia?.errors && Contrasenia?.touched">
+              <p *ngIf="Contrasenia?.hasError('required')" class="text-danger">
+                La Contraseña es requerida
+              </p>
+              <p *ngIf="Contrasenia?.errors?.['minlength']" class="text-danger">
+                La Contraseña debe tener al menos 8 caracteres.
+              </p>
+            </div>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Recordar Contraseña</label>
+          </div>
+          <button type="submit" class="btn glass text-white">Entrar</button>
+        </form>
       </div>
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Recordar Contraseña</label>
+    <!-- registrarse -->
+    <div class="col-sm-6 col-md-4 glass box text-white">
+      <div class="caja p-5">
+        <h1 class="text-center pt-5">Registrarse</h1>
+        <form [formGroup]="formulario" class="py-4" (ngSubmit)="onRegister($event)">
+          <div class="mb-3">
+            <label for="exampleInputEmailRegistro" class="form-label">Email</label>
+            <input formControlName="email" placeholder="hola@gmail.com" autocomplete="username"
+            [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}"
+            type="email" class="form-control" id="exampleInputEmailRegistro" aria-describedby="emailHelp">
+            <div *ngIf="Email?.errors && Email?.touched">
+              <p *ngIf="Email?.hasError('required')" class="text-danger">
+                El email es requerido
+              </p>
+              <p *ngIf="Email?.hasError('email')" class="text-danger">
+                El formato de email debe ser válido.
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPasswordRegistro" class="form-label">Contraseña</label>
+            <input formControlName="contrasenia" placeholder="12345678" autocomplete="current-password"
+            [ngClass]="{'is-invalid': Contrasenia?.errors && Contrasenia?.touched, 'is-valid': !Contrasenia?.errors && Contrasenia?.touched}"
+            type="password" class="form-control" id="exampleInputPasswordRegistro">
+            <div *ngIf="Contrasenia?.errors && Contrasenia?.touched">
+              <p *ngIf="Contrasenia?.hasError('required')" class="text-danger">
+                La Contraseña es requerida
+              </p>
+              <p *ngIf="Contrasenia?.errors?.['minlength']" class="text-danger">
+                La Contraseña debe tener al menos 8 caracteres.
+              </p>
+            </div>
+          </div>
+          <button type="submit" class="btn glass text-white">Entrar</button>
+        </form>
+      </div>
     </div>
-    <button type="submit" class="btn glass text-white">Entrar</button>
-  </form>
-</div>
-</div>
-</div>
+  </div>
 </div>

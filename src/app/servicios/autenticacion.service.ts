@@ -26,6 +26,14 @@ export class AutenticacionService {
     }));
   }
 
+  Registrarse(credenciales:any):Observable<any> {
+    // console.log(credenciales);
+    return this.http.post(this.url+"/api/crear/Usuario", credenciales).pipe(data=>{
+      console.log(data);
+      return data;
+    });
+  }
+
   get UsuarioAutenticado(){
     return this.currentUserSubject.value;
   }

@@ -1,6 +1,9 @@
 :root{
     --color-primario: rgb(71, 255, 120);
 }
+.colorPrimario:hover{
+    background-color: var(--color-primario);
+}
 .aparecer{
     animation-name: aparece;
     animation-duration:2s;

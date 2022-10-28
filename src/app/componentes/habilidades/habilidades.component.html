@@ -5,10 +5,11 @@
       
       <button
       type="button"
-      class="btn btn-primary"
+      class="btn glass colorPrimario text-white"
       (click)="nuevaHabilidad()"
       *ngIf="isLogged"
       >
+      <i class="bi bi-plus-square mx-2"></i>
       Agregar Habilidad
     </button>
       <div  *ngFor="let habilidad of mishabilidades">
@@ -23,19 +24,19 @@
         </div>
         <button
           type="button"
-          class="btn btn-danger"
+          class="btn btn-danger glass mb-3"
           (click)="onDelete(habilidad.id)"
           *ngIf="isLogged"
         >
-          x
+          <i class="bi bi-trash3-fill"></i>
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn glass colorPrimario text-white mb-3"
           (click)="openModal(habilidad)"
           *ngIf="isLogged"
           >
-          x
+          <i class="bi bi-pencil-square"></i>
         </button>
       </div>
     </div>
@@ -44,14 +45,16 @@
       <h3>Habilidades Sociales</h3>
       <button
       type="button"
-      class="btn btn-primary"
+      class="btn glass colorPrimario text-white"
       (click)="nuevaHabilidadBlanda()"
       *ngIf="isLogged"
       >
+      <i class="bi bi-plus-square mx-2"></i>
       Agregar Habilidad
     </button>
-      <div class="cada habilidad" *ngFor="let habilidad of mishabilidadesBlandas">
-        <div class="nome">{{ habilidad.nombre }}</div>
+    <div class="row">
+      <div class="col-6 my-1" *ngFor="let habilidad of mishabilidadesBlandas">
+        <div>{{ habilidad.nombre }}</div>
         <div
           class="progress mx-auto"
           style="width: 140px; height: 140px; border-radius: 50%; transform: rotatez(270deg);"
@@ -65,20 +68,21 @@
         </div>
         <button
           type="button"
-          class="btn btn-danger"
+          class="btn glass btn-danger"
           (click)="onDeleteBlandas(habilidad.id)"
           *ngIf="isLogged"
         >
-          x
+        <i class="bi bi-trash3-fill"></i>
         </button>
         <button
         type="button"
-        class="btn btn-primary"
+        class="btn glass colorPrimario text-white"
         (click)="openModalBlandas(habilidad)"
         *ngIf="isLogged"
         >
-        x
+        <i class="bi bi-pencil-square"></i>
         </button>
+    </div>
 <!-- 
         <circle-progress
           [percent]="habilidad.porcentaje"
@@ -147,12 +151,13 @@
                   </div>
               </div>
               <div class="modal-footer shine">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger glass" data-bs-dismiss="modal">Cancelar</button>
                 <button
                 type="submit"
-                class="btn glass"
+                class="btn glass colorPrimario text-white"
                 data-bs-dismiss="modal"
                 >
+                <i class="bi bi-pencil-square"></i>
                 Enviar
                 </button>
               </div>
@@ -208,12 +213,13 @@
                 </div>
             </div>
             <div class="modal-footer shine">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger glass" data-bs-dismiss="modal">Cancelar</button>
               <button
               type="submit"
-              class="btn glass"
+              class="btn glass colorPrimario text-white"
               data-bs-dismiss="modal"
               >
+              <i class="bi bi-pencil-square"></i>
               Enviar
               </button>
             </div>

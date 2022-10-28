@@ -1,15 +1,15 @@
 <h1 class="pt-5">Educacion</h1>
 <div class="container">
-  <div class="row gap-1 gap-md-3 py-5 justify-content-center" >
+  <div class="row gap-1 gap-md-3 py-2 justify-content-center" >
     <button
     type="button"
-    class="btn btn-primary"
+    class="btn col-6 glass colorPrimario text-white"
     (click)="nuevaEducacion()"
     *ngIf="isLogged"
-    >NuevaEducacion</button>
+    ><i class="bi bi-plus-square px-2"></i>Nueva Educacion</button>
   </div>
   <div class="row gap-1 gap-md-3 justify-content-center" >
-    <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let educacion of mieducacion">
+    <div class="aparecer col-8 col-md-5 col-xl-3 text-center box" *ngFor="let educacion of mieducacion">
       <div class="caja">
         <img class="rounded img-fluid" [src]="educacion.logo" alt="">
         <h3>{{ educacion.titulo }}</h3>
@@ -20,19 +20,19 @@
         <h5>{{ educacion.institucion }}</h5>
         <button
         type="button"
-        class="btn btn-danger"
+        class="btn glass btn-danger mb-3"
         (click)="onDelete(educacion.id)"
         *ngIf="isLogged"
         >
-        x
+        <i class="bi bi-trash3-fill"></i>
         </button>
         <button
         type="button"
-        class="btn btn-warning"
+        class="btn glass text-white colorPrimario mb-3"
         (click)="openModal(educacion)"
         *ngIf="isLogged"
         >
-        x
+        <i class="bi bi-pencil-square"></i>
         </button>
       </div>
     </div>
@@ -107,12 +107,15 @@
             </div>
           </div>
           <div class="modal-footer shine">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn glass btn-danger" data-bs-dismiss="modal">
+              Cancelar
+            </button>
             <button
             type="submit"
-            class="btn glass"
+            class="btn text-white colorPrimario glass"
             data-bs-dismiss="modal"
             >
+        <i class="bi bi-pencil-square"></i>
             Enviar
             </button>
           </div>

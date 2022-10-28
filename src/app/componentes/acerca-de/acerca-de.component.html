@@ -1,6 +1,6 @@
 
     <div class="row portada" [style.background-image]="'url('+miacercade.fotoPortada+')'">
-        <div class="container d-flex">
+        <div class="container">
             <div class="row">
                 <div class="col-auto">
                     <div class="div-imagen mt-5 d-flex glass flotar">
@@ -8,19 +8,20 @@
                     </div>
                 </div>
             
-                <div class="col-auto col-xl-6 p-5 ">
+                <div class="col-auto col-xl-6 p-5">
                     <h1 class="aparecer">{{miacercade.nombre}}</h1>
                     <h2>{{miacercade.titulo}}</h2>
                     <p>{{miacercade.info}}</p>
-                </div>
-                <button
-                type="button"
-                class="btn btn-warning"
-                (click)="openModal(miacercade)"
-                *ngIf="isLogged"
-                >
-                x
-                </button>
+                    
+                    <button
+                    type="button"
+                    class="btn colorPrimario text-white glass"
+                    (click)="openModal(miacercade)"
+                    *ngIf="isLogged"
+                    >
+                    <i class="bi bi-pencil-square"></i>
+                    </button>
+                 </div>
             </div>
         </div>    
     </div>

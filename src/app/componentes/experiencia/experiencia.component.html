@@ -1,15 +1,15 @@
 <h1 class="pt-3">Experiencia Laboral</h1>
 <div class="container">
-  <div class="row gap-1 gap-md-3 py-5 justify-content-center" >
+  <div class="row gap-1 gap-md-3 py-2 justify-content-center" >
     <button
     type="button"
-    class="btn btn-primary"
+    class="btn glass colorPrimario col-6 text-white"
     (click)="nuevaExperiencia()"
     *ngIf="isLogged"
-    >NuevaExperiencia</button>
+    ><i class="bi bi-plus-square px-2"></i>Nueva Experiencia</button>
   </div>
   <div class="row gap-1 gap-md-3 justify-content-center" >
-    <div class="aparecer col-md-5 col-xl-3 text-center box" *ngFor="let experiencia of misexperiencias">
+    <div class="aparecer col-8 col-md-5 col-xl-3 text-center box" *ngFor="let experiencia of misexperiencias">
       <div class="caja">
         <img class="rounded img-fluid" [src]="experiencia.logo" alt="">
         <h3>{{ experiencia.puesto }}</h3>
@@ -21,19 +21,19 @@
         <p>{{ experiencia.actividades }}</p>
         <button
         type="button"
-        class="btn btn-danger"
+        class="btn btn-danger glass mb-3"
         (click)="onDelete(experiencia.id)"
         *ngIf="isLogged"
         >
-        x
+        <i class="bi bi-trash3-fill"></i>
         </button>
         <button
         type="button"
-        class="btn btn-warning"
+        class="btn colorPrimario glass mb-3 text-white"
         (click)="openModal(experiencia)"
         *ngIf="isLogged"
         >
-        x
+        <i class="bi bi-pencil-square"></i>
         </button>
       </div>
     </div>
@@ -118,12 +118,13 @@
             </div>
           </div>
           <div class="modal-footer shine">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger glass" data-bs-dismiss="modal">Cancelar</button>
             <button
             type="submit"
-            class="btn glass"
+            class="btn glass colorPrimario text-white"
             data-bs-dismiss="modal"
             >
+            <i class="bi bi-pencil-square"></i>
             Enviar
             </button>
           </div>

@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+}
+.row, .col{
+    justify-content: center;
+    text-align: center;
+}
+p, h1{
+    color: var(--color-primario)
+}
+.imge{
+    width: 18rem;
+    position:relative;
+    overflow: hidden;
+    transition: scale ease-in-out .5s;
+}
+.imge:hover{
+    scale:1.05;
+}
+.imge::after{
+    content:' ';
+    background-color: var(--color-primario);
+    opacity: 0.1;
+    position: absolute;
+    inset: 0;
+    transform: translateY(100%);
+    transition: transform ease-in-out .5s;
+    z-index: -1;
+}
+.imge:hover::after{
+    transform: translateY(0);
+}

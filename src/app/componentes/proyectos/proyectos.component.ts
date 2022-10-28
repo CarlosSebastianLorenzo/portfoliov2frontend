@@ -122,4 +122,8 @@ export class ProyectosComponent implements OnInit {
     }, 50);
 
   }
+
+  goToLink(url: string){
+    window.open(url, "_blank");
+  }
 }

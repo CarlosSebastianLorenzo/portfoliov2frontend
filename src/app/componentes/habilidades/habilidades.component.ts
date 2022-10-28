@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HabilidadesService } from 'src/app/servicios/habilidades.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Habilidades } from '../../Modelos/habilidades.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AutenticacionService } from '../../servicios/autenticacion.service';
+import { HabilidadesBlandasService } from 'src/app/servicios/habilidades-blandas.service';
 declare var bootstrap: any;
 
 @Component({
@@ -14,6 +14,7 @@ declare var bootstrap: any;
 })
 export class HabilidadesComponent implements OnInit {
   mishabilidades: any;
+  mishabilidadesBlandas: any;
   habilidadesmodal: any;
   public hab: Habilidades;
   idusuario: number = 0;
@@ -25,7 +26,8 @@ export class HabilidadesComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private habilidades: HabilidadesService,
               private route: ActivatedRoute,
-              private autenticacionService:AutenticacionService) {
+              private autenticacionService:AutenticacionService,
+              private habilidadesBlandas: HabilidadesBlandasService) {
     this.hab = {
       id: 1,
       nombre: '',
@@ -44,7 +46,13 @@ export class HabilidadesComponent implements OnInit {
   ngOnInit(): void {
     this.habilidades.obtenerDatos().subscribe((data) => {
       this.mishabilidades = data.habilidades;
+      
     });
+
+    this.habilidadesBlandas.obtenerDatos().subscribe((data) => {
+    this.mishabilidadesBlandas = data.habilidadesBlandas;
+    });
+
     this.habilidadesmodal=[{
       nombre: '',
       imagen: '',
@@ -62,32 +70,48 @@ export class HabilidadesComponent implements OnInit {
 
   refresh(milisegundos:number) {
          setTimeout(() => {
+
           this.habilidades.obtenerDatos().subscribe((data) => {
             this.mishabilidades = data.habilidades;
             });
+
+          this.habilidadesBlandas.obtenerDatos().subscribe((data) => {
+            this.mishabilidadesBlandas = data.habilidadesBlandas;
+            });
+            
          }, milisegundos);
   }
 
   onDelete(id: number) {
-    
-    // alert('la habilidad número '+ JSON.stringify(id) + ' ha borrada');
 
     this.habilidades.borrarDato(id).subscribe((data) => {});
-    
-
-    this.refresh(50);
-
   
+    this.refresh(50);
+  }
+
+  onDeleteBlandas(id: number) {
+
+    this.habilidadesBlandas.borrarDato(id).subscribe((data) => {});
+  
+    this.refresh(50);
   }
 
   openModal(habilidades:Habilidades){
     this.habilidadesmodal =[habilidades];
     setTimeout(() => {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      var myModal = new bootstrap.Modal(document.getElementById('HabilidadesModal'));
       myModal.show();
     }, 50);
-
   }
+
+  openModalBlandas(habilidades:Habilidades){
+    this.habilidadesmodal =[habilidades];
+    setTimeout(() => {
+      var myModal = new bootstrap.Modal(document.getElementById('HabilidadesBlandasModal'));
+      myModal.show();
+    }, 50);
+  }
+
   nuevaHabilidad(){
     this.habilidadesmodal = [{
       nombre: '',
@@ -95,10 +119,21 @@ export class HabilidadesComponent implements OnInit {
       porcentaje: 50
     }]
     setTimeout(() => {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      var myModal = new bootstrap.Modal(document.getElementById('HabilidadesModal'));
       myModal.show();
     }, 50);
+  }
 
+  nuevaHabilidadBlanda(){
+    this.habilidadesmodal = [{
+      nombre: '',
+      imagen: '',
+      porcentaje: 50
+    }]
+    setTimeout(() => {
+      var myModal = new bootstrap.Modal(document.getElementById('HabilidadesBlandasModal'));
+      myModal.show();
+    }, 50);
   }
 
   onChange(event: Event) {
@@ -121,4 +156,26 @@ export class HabilidadesComponent implements OnInit {
     this.refresh(500);
    });
   }
+
+  onChangeBlandas(event: Event) {
+    event.preventDefault;
+   this.route.paramMap.subscribe((ruta: ParamMap) => {
+     this.idusuario = parseInt(ruta.get('ruta')!);
+
+     this.hab = {
+       id: parseInt(this.formulario.value.id),
+       nombre: this.formulario.value.nombre,
+       imagen: this.formulario.value.imagen,
+       porcentaje: this.formulario.value.porcentaje,
+       usuario: { id: this.idusuario },
+     };
+
+    //  console.log('la habilidad número '+ JSON.stringify(this.Id) + ' fue editada');
+     console.log(this.hab)
+     this.habilidadesBlandas.cambiarDato(this.hab).subscribe((data) => { });
+
+    this.refresh(500);
+   });
+  }
+
 }

@@ -5,18 +5,16 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Habilidades } from '../Modelos/habilidades.model';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
-  
 })
+export class HabilidadesBlandasService {
 
-export class HabilidadesService {
- 
   private url = environment.apiUrl;
- 
+
+
   constructor(private http:HttpClient, private router:Router, private route: ActivatedRoute) { }
-  
+
   obtenerDatos(): Observable<any>
   {
     let id = this.router.url
@@ -25,12 +23,12 @@ export class HabilidadesService {
 
   borrarDato(id:number): Observable<any>
   {
-    return this.http.delete<any>(this.url+'/borrar/Habilidades/'+id);
+    return this.http.delete<any>(this.url+'/borrar/HabilidadesBlandas/'+id);
   }
 
   cambiarDato(hab:Habilidades): Observable<Habilidades>
   {
-    return this.http.post<Habilidades>(this.url+'/crear/Habilidades/', hab);
+    return this.http.post<Habilidades>(this.url+'/crear/HabilidadesBlandas/', hab);
   }
 
 }

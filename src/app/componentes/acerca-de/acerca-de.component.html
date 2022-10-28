@@ -1,20 +1,118 @@
 
-
-    <div class="row portada" style="background-image: url(../../../assets/1-2.jpg);">
+    <div class="row portada" [style.background-image]="'url('+miacercade.fotoPortada+')'">
         <div class="container d-flex">
             <div class="row">
                 <div class="col-auto">
                     <div class="div-imagen mt-5 d-flex glass flotar">
-                        <img class="blur m-auto perfil" src="../../../assets/zyro-image (1).png" alt="">
+                        <img class="blur m-auto perfil" [src]="miacercade.fotoPerfil" alt="">
                     </div>
                 </div>
             
                 <div class="col-auto col-xl-6 p-5 ">
-                    <h1 class="aparecer">Carlos Sebastian Lorenzo</h1>
-                    <h2>Full Stack Developer Jr.</h2>
-                    <p>Entusiasta estudiante de Argentina Programa y ferviente suscriptor de TodoCode, donde, siempre acompañado por un buen mate, he incursionado en distintos lenguajes de programación, frameworks, herramientas y buenas prácticas como</p>
+                    <h1 class="aparecer">{{miacercade.nombre}}</h1>
+                    <h2>{{miacercade.titulo}}</h2>
+                    <p>{{miacercade.info}}</p>
                 </div>
+                <button
+                type="button"
+                class="btn btn-warning"
+                (click)="openModal(miacercade)"
+                *ngIf="isLogged"
+                >
+                x
+                </button>
             </div>
         </div>    
     </div>
-
+    <!--MODAL-->
+  <div *ngFor="let acercade of acercademodal" class="modal fade" id="acercadeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content glass">
+        <div class="modal-header shine">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Acerca De</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="formulario" (ngSubmit)="onChange($event)" >
+          <div class="modal-body">
+            <input  type="hidden"
+                    class="form-control"
+                    name="id"
+                    id="id"
+                    formControlName="id"
+                    [ngModel]="acercade.id"
+                    >
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">Nombre y Apellido</label>
+              <input  type="text"
+                      class="form-control"
+                      name="nombre"
+                      id="nombre"
+                      formControlName="nombre"
+                      [ngModel]="acercade.nombre"
+                      >
+            </div>
+            <div class="mb-3">
+              <label for="color" class="col-form-label">Color de la Pagina</label>
+              <input  type="color"
+                      class="form-control"
+                      name="color"
+                      id="color"
+                      formControlName="color"
+                      [ngModel]="acercade.color"
+                      >
+            </div>
+            <div class="mb-3">
+                <label for="titulo" class="col-form-label">Título Profesional</label>
+                <input  type="text"
+                        class="form-control"
+                        name="titulo"
+                        id="titulo"
+                        formControlName="titulo"
+                        [ngModel]="acercade.titulo"
+                        >
+            </div>
+            <div class="mb-3">
+                <label for="fotoPerfil" class="col-form-label">Link de foto de Perfil</label>
+                <input  type="text"
+                        class="form-control"
+                        name="fotoPerfil"
+                        id="fotoPerfil"
+                        formControlName="fotoPerfil"
+                        [ngModel]="acercade.fotoPerfil"
+                        >
+            </div>
+            <div class="mb-3">
+                <label for="fotoPortada" class="col-form-label">Link de Foto de Portada</label>
+                <input  type="text"
+                        class="form-control"
+                        name="fotoPortada"
+                        id="fotoPortada"
+                        formControlName="fotoPortada"
+                        [ngModel]="acercade.fotoPortada"
+                        >
+            </div>
+            <div class="mb-3">
+              <label for="info" class="col-form-label">Resumén Sobre ti</label>
+              <input  type="textarea"
+                      class="form-control"
+                      name="info"
+                      id="info"
+                      formControlName="info"
+                      [ngModel]="acercade.info"
+                      >
+            </div>
+          </div>
+          <div class="modal-footer shine">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button
+            type="submit"
+            class="btn glass"
+            data-bs-dismiss="modal"
+            >
+            Enviar
+            </button>
+          </div>
+        </form>
+      </div>  
+    </div>
+  </div>  

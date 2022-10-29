@@ -26,12 +26,10 @@ export class AutenticacionService {
     }));
   }
 
-  Registrarse(credenciales:any):Observable<any> {
+  Registrarse(credenciales:any):Observable<String> {
     // console.log(credenciales);
-    return this.http.post(this.url+"/api/crear/Usuario", credenciales).pipe(data=>{
-      console.log(data);
-      return data;
-    });
+    return this.http.post<String>(this.url+"/api/crear/Usuario", credenciales);
+
   }
 
   get UsuarioAutenticado(){

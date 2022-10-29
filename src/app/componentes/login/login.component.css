@@ -1,9 +1,5 @@
-.row{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.container-fluid{
+    min-height: 100vh;
 }
 .contain{
     overflow: hidden;
@@ -19,4 +15,7 @@
     to{
         filter: hue-rotate(360deg);
     }
+}
+i{
+    color: var(--color-primario);
 }

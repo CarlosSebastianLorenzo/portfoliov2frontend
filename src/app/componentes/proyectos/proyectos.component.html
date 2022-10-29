@@ -11,7 +11,7 @@
     Nuevo Proyecto</button>
   </div>
   <div class="row gap-1 gap-md-3 justify-content-center" >
-    <div class="imge aparecer col-md-5 col-xl-3 card bg-dark glass text-white" *ngFor="let proyecto of misproyectos">
+    <div class="imge aparecer col-10 col-md-5 col-xl-3 card bg-dark glass text-white" *ngFor="let proyecto of misproyectos" style="width: 18rem;">
       
       <a (click)="goToLink(proyecto.link)" style="text-decoration:none; cursor: pointer;">
         <img  class="card-img-top" [src]="proyecto.imagen" alt="">
@@ -21,25 +21,26 @@
               {{ proyecto.fecha | date: "dd/MM/yyyy" }}
               </p>        
               <p class="card-text">{{ proyecto.descripcion }}</p>
-          
-          <button
-          type="button"
-          class="btn glass btn-danger mb-3"
-          (click)="onDelete(proyecto.id)"
-          *ngIf="isLogged"
-          >
-          <i class="bi bi-trash3-fill"></i>
-          </button>
-          <button
-          type="button"
-          class="btn colorPrimario glass text-white mb-3"
-          (click)="openModal(proyecto)"
-          *ngIf="isLogged"
-          >
-          <i class="bi bi-pencil-square"></i>
-          </button>
         </div>
-      </a>  
+      </a>
+      <div class="card-body">  
+      <button
+      type="button"
+      class="btn glass btn-danger mb-3"
+      (click)="onDelete(proyecto.id)"
+      *ngIf="isLogged"
+      >
+      <i class="bi bi-trash3-fill"></i>
+      </button>
+      <button
+      type="button"
+      class="btn colorPrimario glass text-white mb-3"
+      (click)="openModal(proyecto)"
+      *ngIf="isLogged"
+      >
+      <i class="bi bi-pencil-square"></i>
+      </button>
+      </div>
     </div>
   </div>
   <!--MODAL-->

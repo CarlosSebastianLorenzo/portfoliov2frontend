@@ -13,7 +13,10 @@
       Agregar Habilidad
     </button>
       <div  *ngFor="let habilidad of mishabilidades">
-        <div class="nome">{{ habilidad.nombre}}</div>
+        <div class="row justify-content-center">
+          <div class="col-1 pb-2"><img [src]="habilidad.imagen" style="width:25px;height:25px;"></div>
+          <div class="col-1 pt-1"><h5>{{ habilidad.nombre}}</h5></div>
+        </div>  
         <div class="progress">
           <div
             class="progress-bar"
@@ -41,7 +44,7 @@
       </div>
     </div>
     <!--SOFT SKILLS-->
-    <div class="col-sm-12 col-md-3 d-inline text-center mx-auto">
+    <div class="col-sm-12 col-md-6 d-inline text-center mx-auto">
       <h3>Habilidades Sociales</h3>
       <button
       type="button"

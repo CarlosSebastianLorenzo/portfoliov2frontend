@@ -31,10 +31,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(): void{
-    setTimeout(() => {
     window.sessionStorage.clear();
     this.isLogged = false;
-    },50)
     window.location.reload();
   }
 

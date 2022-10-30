@@ -14,9 +14,12 @@
     </button>
       <div class="blur" *ngFor="let habilidad of mishabilidades">
         
-          <div class="col pt-1 d-flex justify-content-center gap-2">
-            <h5>{{ habilidad.nombre}}</h5>
-            <img *ngIf="habilidad.imagen!=0"[src]="habilidad.imagen" style="width:25px;height:25px;">
+          <div class="pt-1 d-flex justify-content-center align-items-center gap-2">
+            
+            <h5 class="my-auto">{{ habilidad.nombre}}</h5>
+            <i class="{{habilidad.imagen}} my-auto"></i>
+            
+            <!-- <img *ngIf="habilidad.imagen!=0"[src]="habilidad.imagen" style="width:25px;height:25px;"> -->
           </div>
          
         <div class="progress">
@@ -59,7 +62,10 @@
     </button>
     <div class="row">
       <div class="col-6 my-1 blur" *ngFor="let habilidad of mishabilidadesBlandas">
-        <div>{{ habilidad.nombre }}</div>
+        <div class="pt-1 d-flex justify-content-center align-items-center gap-2">
+          <h5 class="my-auto">{{ habilidad.nombre}}</h5>
+          <i class="{{habilidad.imagen}} my-auto"></i>
+        </div>
         <div
           class="progress mx-auto"
           style="width: 140px; height: 140px; border-radius: 50%; transform: rotatez(270deg);"
@@ -132,16 +138,25 @@
                             name="nombre"
                             id="nombre"
                             formControlName="nombre"
+                            placeholder="Javascript"
                             [ngModel]="habilidad.nombre"
                             >
                   </div>
                   <div class="mb-3">
-                    <label for="imagen" class="col-form-label">Imagen</label>
+                    <label for="imagen" class="col-form-label">Icono de Bootstrap o Fontawesome</label>
+                    <p>elijelos aquí 
+                      <a class="text-white" href="https://fontawesome.com/search?o=r&m=free" target="_blank">
+                        <i class="fa-solid fa-font-awesome"></i>
+                      </a> o aquí <a class="text-white" href="https://icons.getbootstrap.com/" target="_blank">
+                        <i class="bi bi-bootstrap"></i>
+                      </a>
+                    </p>
                     <input  type="text"
                             class="form-control"
                             name="imagen"
                             id="imagen"
                             formControlName="imagen"
+                            placeholder="fa-brands fa-square-js"
                             ngModel="{{habilidad.imagen}}">
                   </div>
                   <div class="mb-3">
@@ -193,16 +208,25 @@
                           class="form-control"
                           name="nombre"
                           id="nombre"
+                          placeholder="Comunicación"
                           formControlName="nombre"
                           [ngModel]="habilidad.nombre"
                           >
                 </div>
                 <div class="mb-3">
-                  <label for="imagen" class="col-form-label">Imagen</label>
+                  <label for="imagen" class="col-form-label">Icono de Bootstrap o Fontawesome</label>
+                  <p>elijelos aquí 
+                    <a class="text-white" href="https://fontawesome.com/search?o=r&m=free" target="_blank">
+                      <i class="fa-solid fa-font-awesome"></i>
+                    </a> o aquí <a class="text-white" href="https://icons.getbootstrap.com/" target="_blank">
+                      <i class="bi bi-bootstrap"></i>
+                    </a>
+                  </p>
                   <input  type="text"
                           class="form-control"
                           name="imagen"
                           id="imagen"
+                          placeholder="fa-solid fa-user-group"
                           formControlName="imagen"
                           ngModel="{{habilidad.imagen}}">
                 </div>

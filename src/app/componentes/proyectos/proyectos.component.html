@@ -10,11 +10,11 @@
     <i class="bi bi-plus-square px-2"></i>
     Nuevo Proyecto</button>
   </div>
-  <div class="row gap-1 gap-md-3 justify-content-center" >
-    <div class="imge aparecer col-10 col-md-5 col-xl-3 card bg-dark glass text-white" *ngFor="let proyecto of misproyectos" style="width: 18rem;">
-      
+  <div class="row gap-2 gap-lg-0 justify-content-center" >
+    <div class="col-10 col-md-8 col-lg-4 text-white" *ngFor="let proyecto of misproyectos" >
+      <div class="imge card glass">
       <a (click)="goToLink(proyecto.link)" style="text-decoration:none; cursor: pointer;">
-        <img  class="card-img-top" [src]="proyecto.imagen" alt="">
+        <img  class="card-img-top" [src]="proyecto.imagen" alt="" style="height:18rem; object-fit: cover;">
         <div class="card-body">
               <h3 class="card-title">{{ proyecto.nombre }}</h3>
               <p class="card-text">
@@ -26,7 +26,7 @@
       <div class="card-body">  
       <button
       type="button"
-      class="btn glass btn-danger mb-3"
+      class="btn glass btn-danger"
       (click)="onDelete(proyecto.id)"
       *ngIf="isLogged"
       >
@@ -34,12 +34,13 @@
       </button>
       <button
       type="button"
-      class="btn colorPrimario glass text-white mb-3"
+      class="btn colorPrimario glass text-white"
       (click)="openModal(proyecto)"
       *ngIf="isLogged"
       >
       <i class="bi bi-pencil-square"></i>
       </button>
+      </div>
       </div>
     </div>
   </div>

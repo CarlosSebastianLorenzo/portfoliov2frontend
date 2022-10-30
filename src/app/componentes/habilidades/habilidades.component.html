@@ -12,7 +12,7 @@
       <i class="bi bi-plus-square mx-2"></i>
       Agregar Habilidad
     </button>
-      <div  *ngFor="let habilidad of mishabilidades">
+      <div class="blur" *ngFor="let habilidad of mishabilidades">
         
           <div class="col pt-1 d-flex justify-content-center gap-2">
             <h5>{{ habilidad.nombre}}</h5>
@@ -58,7 +58,7 @@
       Agregar Habilidad
     </button>
     <div class="row">
-      <div class="col-6 my-1" *ngFor="let habilidad of mishabilidadesBlandas">
+      <div class="col-6 my-1 blur" *ngFor="let habilidad of mishabilidadesBlandas">
         <div>{{ habilidad.nombre }}</div>
         <div
           class="progress mx-auto"

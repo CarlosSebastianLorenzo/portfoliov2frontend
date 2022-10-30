@@ -23,7 +23,7 @@
               </p>
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-5">
             <label for="exampleInputPasswordRegistro" class="form-label">Contraseña</label>
             <input formControlName="contrasenia" placeholder="12345678" autocomplete="current-password"
             [ngClass]="{'is-invalid': Contrasenia?.errors && Contrasenia?.touched, 'is-valid': !Contrasenia?.errors && Contrasenia?.touched}"
@@ -37,7 +37,9 @@
               </p>
             </div>
           </div>
-          <button type="submit" class="btn glass text-white">Entrar</button>
+          <div class="col d-flex justify-content-center">
+          <button type="submit" class="btn glass colorPrimario text-white">Registrarse</button>
+          </div>
         </form>
       </div>
     </div>
@@ -60,7 +62,7 @@
               </p>
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-5">
             <label for="exampleInputPasswordLogin" class="form-label">Contraseña</label>
             <input formControlName="contrasenia" placeholder="12345678" autocomplete="current-password"
             [ngClass]="{'is-invalid': Contrasenia?.errors && Contrasenia?.touched, 'is-valid': !Contrasenia?.errors && Contrasenia?.touched}"
@@ -74,13 +76,16 @@
               </p>
             </div>
           </div>
-          <button type="submit" class="btn glass text-white">Entrar</button>
+          <div class="col d-flex justify-content-center">
+          <button type="submit" class="btn glass colorPrimario text-white">Ingresar</button>
+          </div>
         </form>
       </div>
     </div>
   </div>
-  <div class="row text-center text-white p-5">
-    <p>Aquí puedes ver el
+  <div class="row text-center text-white pt-3">
+    <p>Agrega tus experiencias, comparte tus redes, personaliza con tu color preferido,
+      <br>Aquí puedes ver el
        <a (click)="goToLink()" style="text-decoration:none; cursor: pointer;">
       <i>Portfolio</i></a>
        del programador de este sitio web</p>

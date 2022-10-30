@@ -36,4 +36,8 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
+  goToLink(){
+    window.open("https://www.argentina.gob.ar/economia/conocimiento/argentina-programa", "_blank");
+  }
+
 }

@@ -9,7 +9,7 @@
     ><i class="bi bi-plus-square px-2"></i>Nueva Educacion</button>
   </div>
   <div class="row gap-1 gap-md-3 justify-content-center" >
-    <div class="aparecer col-8 col-md-5 col-xl-3 text-center box" *ngFor="let educacion of mieducacion">
+    <div class="aparecer col-8 col-md-5 col-xl-3 text-center box text-white" *ngFor="let educacion of mieducacion">
       <div class="caja">
         <img class="rounded img-fluid" [src]="educacion.logo" alt="">
         <h3>{{ educacion.titulo }}</h3>
@@ -38,7 +38,7 @@
     </div>
   </div>
   <!--MODAL-->
-  <div *ngFor="let educacion of educacionmodal" class="modal fade" id="educacionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div *ngFor="let educacion of educacionmodal" class="modal fade text-white" id="educacionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content glass">
         <div class="modal-header shine">

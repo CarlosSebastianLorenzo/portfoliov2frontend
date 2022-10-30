@@ -9,10 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class AutenticacionService {
   private url = environment.apiUrl;
-
   currentUserSubject: BehaviorSubject<any>;
+
   constructor(private http:HttpClient) { 
-    console.log("Autenticacion ta funcando...");
   this.currentUserSubject= new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')||'{}'));
   }
 

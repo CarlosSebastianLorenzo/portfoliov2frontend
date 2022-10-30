@@ -18,7 +18,7 @@ export class PortfolioComponent implements OnInit {
     if(this.modo=="dark"){
      this.modo="light",this.cambiar="dark";}
     else{ this.modo="dark",this.cambiar="light";}
-       
+  //  localStorage.setItem('modo',this.modo);
     
     console.log(this.modo)
 

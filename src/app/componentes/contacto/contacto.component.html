@@ -1,0 +1,33 @@
+<div class="row d-flex justify-content-center py-5">
+    <div class="col-10 col-md-6">
+        <h1 class="text-center">Contactame</h1>
+        <!--<form action="https://formsubmit.co/46bf90620db4dd6e91f341acefbcd84f" method="POST">-->
+            <form>
+            <div class="form-group pb-2">
+                <label for="Nombre">Nombre</label>
+                <input #nombre (keyup)="0" class="form-control" type="text" name="name">
+            </div>
+            <div class="form-group pb-2">
+            <label for="email">Correo Electronico</label>
+            <input #email (keyup)="0" class="form-control" type="email" name="email">
+            </div>
+            <div class="form-group pb-2">
+            <label for="subject">Asunto</label>
+            <input #asunto (keyup)="0" class="form-control" type="text" name="subject">
+            </div>
+            <div class="form-group pb-4">
+            <label for="comments">Comentarios</label>
+             <!--<textarea class="form-control" name="comments"  cols="15" rows="5"></textarea>-->
+            <input #mensaje (keyup)="0" class="form-control" type="email" name="comments">
+            </div>
+            <div class="col text-end">
+            <!-- <input class="btn btn-dark glass" type="submit" value="Enviar"> -->
+                <a class="btn colorPrimario text-white glass"
+                 href="mailto:{{contacto}}?subject={{asunto.value}}
+                 &body=Hola%20soy%20{{nombre.value}}
+                 %0Ami%20email%20es%20{{email.value}}
+                 %0A{{mensaje.value}}">Enviar</a>
+            </div>
+        </form>
+    </div>
+</div>

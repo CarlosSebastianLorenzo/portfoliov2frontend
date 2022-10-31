@@ -22,7 +22,7 @@
 }
 
 .portada{
-    height: 100vh;
+    min-height: 100vh;
     background-size:cover;
     background-position-y: bottom;
     background-position-x: center;

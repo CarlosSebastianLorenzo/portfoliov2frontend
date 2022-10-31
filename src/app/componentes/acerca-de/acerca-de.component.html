@@ -94,13 +94,15 @@
             </div>
             <div class="mb-3">
               <label for="info" class="col-form-label">Resumén Sobre ti</label>
-              <input  type="textarea"
+              <textarea  type="textarea"
+                      rows="1" cols="50"
                       class="form-control"
                       name="info"
                       id="info"
                       formControlName="info"
                       [ngModel]="acercade.info"
                       >
+              </textarea>        
             </div>
           </div>
           <div class="modal-footer shine">

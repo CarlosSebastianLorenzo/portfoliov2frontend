@@ -4,6 +4,7 @@ h1{
 .row, .col{
     justify-content: center;
     text-align: center;
+    filter: drop-shadow(1px 1px 1px black);
 }
 p, h1{
     color: var(--color-primario)
@@ -19,7 +20,7 @@ p, h1{
 .imge::after{
     content:' ';
     background-color: var(--color-primario);
-    opacity: 0.1;
+    opacity: 0.3;
     position: absolute;
     inset: 0;
     transform: translateY(100%);

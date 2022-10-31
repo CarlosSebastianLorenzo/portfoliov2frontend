@@ -1,0 +1,37 @@
+.ul{
+    min-width: 30vw;
+    background-color: var(--color-primario);
+    border-radius: 20px;
+    height: 2px;
+}
+.logo{
+    font-size: 2rem;
+    cursor: pointer;
+}
+.logo:hover{
+    color: var(--color-primario);
+    translate: 0 -5px;
+}
+p{
+    color: gray;
+}
+.nombre{
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+}
+.contenedor{
+    position: relative;
+}
+.delete, .edit{
+    cursor: pointer;
+}
+.edit{
+    translate: 0 1px;
+}
+.delete:hover{
+    color: red;
+}
+.edit:hover{
+    color: var(--color-primario);
+}

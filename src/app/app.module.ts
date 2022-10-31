@@ -17,6 +17,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { InterceptorService } from './servicios/interceptor.service';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { InterceptorService } from './servicios/interceptor.service';
     AcercaDeComponent,
     LoginComponent,
     ContactoComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

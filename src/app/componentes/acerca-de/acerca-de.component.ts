@@ -53,11 +53,11 @@ export class AcercaDeComponent implements OnInit {
       }
       else{
         this.miacercade = {
-          nombre: "Jaime Altozano",
-          titulo: "Musicologo y Youtuber",
-          fotoPerfil: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3112172/settings_images/SYeGNqjKScWGJmUth0fA_foto_jaime4.png",
-          fotoPortada: "https://www.amadeusescuelademusica.es/wp-content/uploads/2019/03/El-piano-768x432.jpg",
-          info: "Hago vídeos sobre bandas sonoras, enseño piano en musihacks y me descargo en jaimeafterdark"
+          nombre: "Tu Nombre",
+          titulo: "Tu Título",
+          fotoPerfil: "https://cdn-icons-png.flaticon.com/512/20/20079.png",
+          fotoPortada: "https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Teaser/web-development-t.jpg",
+          info: "Breve resumen sobre ti y lo que ofreces"
         };
       }
     });
